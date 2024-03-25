@@ -8,8 +8,6 @@ import './App.css';
 <template>
   <header class="TopBar">
     <TopBar />
-
-
   </header>
 
   <main>
