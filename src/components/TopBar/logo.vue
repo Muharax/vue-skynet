@@ -1,7 +1,7 @@
 <template>
 
-    <div class="logoW1">
-        <router-link to="/" class="logoW1">
+    <div>
+        <router-link to="/">
             <div>
                 <img id="logo-img" src="./img/logo.png" />
             </div>

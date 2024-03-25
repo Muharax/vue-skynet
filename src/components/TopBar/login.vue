@@ -14,7 +14,8 @@
   
   <style scoped>
   .icons {
-    color: rgb(240, 240, 240); /* Ustaw kolor ikony */
+    display: flex;
+    color: var(--font-color); /* Ustaw kolor ikony */
   }
   .icon path {
     fill: currentColor; /* Ustaw wypełnienie ścieżki na aktualny kolor */
