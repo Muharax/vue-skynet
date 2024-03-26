@@ -78,14 +78,14 @@
   }
 
 .LOGOWANIE {
-  min-width: 250px;
+  width: 23%;
   min-height: 400px;
   display: flex;
   flex-direction: column;
   background-color: var(--search);
   border-radius: 5px;
   justify-content: center;
-  position: fixed;
+  /* position: fixed; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
