@@ -26,6 +26,7 @@ import './App.css';
 .TopBar {
   background-color: var(--color-background);
   box-shadow: 0px 0px 2px 1px var(--box-shadow);
+  padding-right: 15px;
   /* margin-bottom: 10px; */
   justify-content: space-between;
   width: 100%;
@@ -45,5 +46,6 @@ import './App.css';
 }
 .router{
   width: 100%;
+  padding: 7px;
 }
 </style>

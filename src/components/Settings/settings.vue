@@ -5,16 +5,27 @@
       <hr>
     </div>
     <div class="sett">
-    <div class="settMenu">
-    <router-link to="/settings/language" class="button">Przejdź do ustawień języka</router-link>
-    <router-link to="/settings/language" class="button">Przejdź do ustawień motywu</router-link>
-    <router-link to="/settings/language" class="button">Przejdź do ustawień ciasteczek</router-link>
+      <div class="settMenu">
+        <ul>
+          <li><router-link to="/settings/language" class="settLink"
+              :class="{ 'active': $route.path === '/settings/language' }">
+              Przejdź do ustawień języka
+            </router-link>
+          </li>
+          <li><router-link to="/settings/theme" class="settLink"
+              :class="{ 'active': $route.path === '/settings/theme' }">
+              Przejdź do ustawień motywu
+            </router-link></li>
+          <li><router-link to="/settings/cookies" class="settLink"
+              :class="{ 'active': $route.path === '/settings/cookies' }">Przejdź do ustawień ciasteczek</router-link>
+          </li>
+        </ul>
+      </div>
+      <div class="settRouter">
+        <router-view></router-view>
+      </div>
+    </div>
   </div>
-  <div class="settRouter">
-    <router-view></router-view>
-  </div>
-</div>
-</div>
 </template>
 
 <script setup>
@@ -23,21 +34,32 @@
 </script>
 
 <style scoped>
-.settings {
-  color: white;
+.settLink {
+  color: var(--font-color);
 }
-.sett{
-  display: flex; 
+.settLink:hover {
+  color: var(--font-color-hover);
+}
+
+.sett {
+  display: flex;
   padding: 5px;
 }
-.settMenu{
+
+.settMenu {
   display: flex;
   flex-direction: column;
 }
-.settRouter{
+
+.settRouter {
   /* background-color: var(--primary); */
 }
-.sett > * {
+
+.sett>* {
   padding: 7px;
+}
+
+.active {
+  color: var(--font-color-active);
 }
 </style>
