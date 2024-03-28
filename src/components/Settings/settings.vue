@@ -7,18 +7,19 @@
     <div class="sett">
       <div class="settMenu">
         <ul>
-          <li><router-link to="/settings/language" class="settLink"
-              :class="{ 'active': $route.path === '/settings/language' }">
-              Przejdź do ustawień języka
-            </router-link>
-          </li>
           <li><router-link to="/settings/theme" class="settLink"
               :class="{ 'active': $route.path === '/settings/theme' }">
               Przejdź do ustawień motywu
             </router-link></li>
-          <li><router-link to="/settings/cookies" class="settLink"
+          <!-- <li><router-link to="/settings/language" class="settLink"
+              :class="{ 'active': $route.path === '/settings/language' }">
+              Przejdź do ustawień języka
+            </router-link>
+          </li> -->
+
+          <!-- <li><router-link to="/settings/cookies" class="settLink"
               :class="{ 'active': $route.path === '/settings/cookies' }">Przejdź do ustawień ciasteczek</router-link>
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="settRouter">
@@ -34,12 +35,14 @@
 </script>
 
 <style scoped>
-.settings{
+.settings {
   height: 100%;
 }
+
 .settLink {
   color: var(--font-color);
 }
+
 .settLink:hover {
   color: var(--font-color-hover);
 }

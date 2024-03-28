@@ -38,19 +38,31 @@
       </div>
     </router-link>
     <hr>
-<!-- ============================= HOME ============================== -->
-    <router-link to="/" title="" class="menu-item setHover"
-      :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/')">
+    <!-- ============================= AI ============================== -->
+    <router-link to="/Ai" title="" class="menu-item setHover"
+      :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/Ai')">
       <div class="menu-ico">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M160-120v-375l-72 55-48-64 120-92v-124h80v63l240-183 440 336-48 63-72-54v375H160Zm80-80h200v-160h80v160h200v-356L480-739 240-556v356Zm-80-560q0-50 35-85t85-35q17 0 28.5-11.5T320-920h80q0 50-35 85t-85 35q-17 0-28.5 11.5T240-760h-80Zm80 560h480-480Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M80-120v-80h800v80H80Zm680-160v-560h60v560h-60Zm-600 0 210-560h100l210 560h-96l-50-144H308l-52 144h-96Zm176-224h168l-82-232h-4l-82 232Z"/></svg>
       </div>
-      <div class="description" :class="[
-    expanded ? 'show-description' : '',
-    $route.path === '/' ? 'activeDescription' : ''
+      <div class="description" 
+      :class="[expanded ? 'show-description' : '',
+    $route.path.startsWith('/Ai') ? 'activeDescription' : ''
   ]">
-        Strona główna
+        AI
       </div>
     </router-link>
+<!-- ============================= HOME ============================== -->
+<router-link to="/" title="" class="menu-item setHover"
+  :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item', 
+          ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeTab' : '']"
+  @click="handleItemClick('/')">
+  <div class="menu-ico">
+    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M160-120v-375l-72 55-48-64 120-92v-124h80v63l240-183 440 336-48 63-72-54v375H160Zm80-80h200v-160h80v160h200v-356L480-739 240-556v356Zm-80-560q0-50 35-85t85-35q17 0 28.5-11.5T320-920h80q0 50-35 85t-85 35q-17 0-28.5 11.5T240-760h-80Zm80 560h480-480Z"/></svg>
+  </div>
+  <div class="description" :class="[expanded ? 'show-description' : '', ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeDescription' : '']">
+    Strona główna
+  </div>
+</router-link>
     
     <!-- ============================= LOGOUT ============================== -->
     <router-link to="/logout" title="" class="menu-item setHover"

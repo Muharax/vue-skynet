@@ -9,12 +9,15 @@ import Theme from '../Settings/theme/theme.vue';
 import Cookie from '../Settings/cookie/cookie.vue';
 
 import Logout from '../Logowanie/logout.vue';
+import AI from '../LeftBar/musicVideoAi.vue';
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: '/', component: Home },
     { path: '/login', component: Logowanie },
+    { path: '/Ai', component: AI },
+    { path: '/vue-skynet/', component: Home },
     {
       path: '/settings',
       component: Settings,

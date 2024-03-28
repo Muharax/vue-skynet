@@ -4,10 +4,10 @@
     <hr>
     Hello Home, how are you?
     <hr>
-    <ul>
+    <!-- <ul>
     <li><h2>Ogłoszenia promowane</h2></li>
-  </ul>
-    <div v-if="ads.length > 0" class="ads-cont">
+  </ul> -->
+    <!-- <div v-if="ads.length > 0" class="ads-cont">
       <div v-for="ad in ads" :key="ad.id" class="ads-container">
         <div :title="ad.title" class="ads-title">{{ ad.title }}</div>
         <hr style="width: 50%;" />
@@ -19,26 +19,26 @@
     </div>
     <div v-else>
       Brak ogłoszeń
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import axios from 'axios';
-import { SERVER_URL } from '../../config.js';
+// import { ref, onMounted } from 'vue';
+// import axios from 'axios';
+// import { SERVER_URL } from '../../config.js';
 
-const ads = ref([]);
+// const ads = ref([]);
 
-// Pobierz dane z serwera przy montowaniu komponentu
-onMounted(async () => {
-  try {
-    const response = await axios.get(`${SERVER_URL}/api/ads`); // Endpoint do pobierania danych z bazy danych
-    ads.value = response.data; // Ustaw dane ogłoszeń na te pobrane z serwera
-  } catch (error) {
-    console.error('Błąd podczas pobierania danych:', error);
-  }
-});
+// // Pobierz dane z serwera przy montowaniu komponentu
+// onMounted(async () => {
+//   try {
+//     const response = await axios.get(`${SERVER_URL}/api/ads`); // Endpoint do pobierania danych z bazy danych
+//     ads.value = response.data; // Ustaw dane ogłoszeń na te pobrane z serwera
+//   } catch (error) {
+//     console.error('Błąd podczas pobierania danych:', error);
+//   }
+// });
 </script>
 
 <style scoped>
