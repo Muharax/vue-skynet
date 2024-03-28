@@ -1,5 +1,5 @@
 <template>
-  <div class="settings">
+  <div>
     <div class="fade-in">
       <h1>Witaj w Ustawieniach systemu SKYNET!</h1>
     </div>
@@ -12,16 +12,20 @@
 
 <style scoped>
 .fade-in {
-  animation: fadeInAnimation 2s ease forwards;
+  animation: fadeInAnimation 3s ease forwards;
   opacity: 0;
 }
 
 @keyframes fadeInAnimation {
   from {
     opacity: 0;
+    /* position: absolute; */
+    /* right:-1200px; */
   }
   to {
     opacity: 1;
+    /* right: 0; */
+    /* position: static; */
   }
 }
 

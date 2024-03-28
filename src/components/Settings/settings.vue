@@ -34,6 +34,9 @@
 </script>
 
 <style scoped>
+.settings{
+  height: 100%;
+}
 .settLink {
   color: var(--font-color);
 }

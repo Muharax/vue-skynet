@@ -2,13 +2,6 @@
   display: block;
   margin: 0 auto 2rem;
 }
-/* *, *::before, *::after {  */
-  /* box-sizing: border-box; */
-  /* margin: 0; */
-  /* position: relative; */
-  /* font-weight: normal; */
-/* }  */
-
 
 @media (min-width: 1024px) {
   .logo {

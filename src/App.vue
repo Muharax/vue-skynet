@@ -1,11 +1,3 @@
-<script setup>
-import TopBar from './components/TopBar/TopBar-Main.vue'
-import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
-import './App.css';
-
-
-</script>
-
 <template>
   <div class="TopBar">
     <TopBar />
@@ -21,6 +13,19 @@ import './App.css';
 
 
 </template>
+
+<script setup>
+import './App.css';
+import { initializeTheme } from './components/Settings/theme/themeLogic.js';
+initializeTheme();
+
+import TopBar from './components/TopBar/TopBar-Main.vue'
+import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
+
+
+
+
+</script>
 
 <style scoped>
 .TopBar {
@@ -41,11 +46,12 @@ import './App.css';
 }
 
 .line {
-  height: calc(100vh - 75px); /* Wysokość ekranu minus wysokość TopBar */
+  height: calc(100vh - 75px);
+  /* Wysokość ekranu minus wysokość TopBar */
   display: flex;
 }
-.router{
+
+.router {
   width: 100%;
-  padding: 7px;
 }
 </style>

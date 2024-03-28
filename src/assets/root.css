@@ -3,8 +3,8 @@
     --font-color: #4d4d4d;
     --primary: #a8a8a8;
     --box-shadow:#345366;
-    --font-color-active: #ffffff;
-    --font-color-hover: #ffffff;
+    --font-color-active: #c41b23;
+    --font-color-hover: #d04242;
   }
   
   :root[data-theme="dark"] {

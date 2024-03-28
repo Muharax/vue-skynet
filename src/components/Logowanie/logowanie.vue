@@ -1,9 +1,7 @@
 <template>
     <div class="LOGOWANIE">
       <div v-if="authError" class="error-message">{{ authError }}</div>
-  
-      <!-- <img title="GPS" class="rop" :src="rop" alt="ROP" /> -->
-  
+    
       <div class="LG">
         <div class="logos">
           <img src="../../assets/logo.svg" alt="" class="logos-SWG" />
@@ -55,22 +53,18 @@
     </div>
   </template>
   
-  <script>
-  export default {
-    data() {
-      return {
-        username: "",
-        password: "",
-        authError: "", // Ustawiaj odpowiedni komunikat błędu
-      };
-    },
-    methods: {
-      handleSubmit() {
-        // Obsługa logowania
-      },
-    },
+  <script setup>
+  import { ref } from 'vue';
+  
+  const username = ref('');
+  const password = ref('');
+  const authError = ref('');
+  
+  const handleSubmit = () => {
+    
   };
   </script>
+  
   
   <style scoped>
    .icon {
@@ -78,7 +72,7 @@
   }
 
 .LOGOWANIE {
-  width: 23%;
+  width: 290px;
   min-height: 400px;
   display: flex;
   flex-direction: column;

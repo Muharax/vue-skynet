@@ -1,7 +1,16 @@
 <script setup>
-  import mobileMenu from './menu.vue';
+import logo from './logo.vue';
+import login from './login.vue';
+import socialMedia from './socialMedia.vue';
+
 </script>
 
 <template>
-  <mobileMenu />
+  <logo></logo>
+  <socialMedia />
+  <login></login>
+
 </template>
+
+
+<style scoped></style>
