@@ -22,14 +22,11 @@
     </div> -->
   </div>
 </template>
-
 <script setup>
 // import { ref, onMounted } from 'vue';
 // import axios from 'axios';
 // import { SERVER_URL } from '../../config.js';
-
 // const ads = ref([]);
-
 // // Pobierz dane z serwera przy montowaniu komponentu
 // onMounted(async () => {
 //   try {
@@ -40,17 +37,17 @@
 //   }
 // });
 </script>
-
 <style scoped>
 .home {}
 
 .ads-descriptions {
   min-height: 78px;
   max-height: 78px;
-  padding-top: 3px;
+  /* padding-top: 3px; */
   line-height: 14px;
   font-family: Open Sans, sans-serif;
 }
+
 .ads-descriptions:hover {
   z-index: 999;
   position: relative;
@@ -62,11 +59,13 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.ads-container > hr {
+
+.ads-container>hr {
   text-align: center;
 }
+
 .ads-container {
-  padding: 5px;
+  /* padding: 5px; */
   transition: 200ms;
   cursor: pointer;
   max-width: 200px;
@@ -85,8 +84,8 @@
 
 .ads-image-container {
   max-width: 200px;
-  flex-shrink: 0; /* Zapobiega zmniejszaniu się kontenera obrazu */
-
+  flex-shrink: 0;
+  /* Zapobiega zmniejszaniu się kontenera obrazu */
 }
 
 .ads-image {

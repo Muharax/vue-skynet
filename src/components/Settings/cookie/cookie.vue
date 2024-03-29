@@ -66,7 +66,7 @@ const updateAdditionalCookie = () => {
 
 .cookie-switch {
   margin-bottom: 10px;
-  display: flex;
+  ;
   flex-direction: row;
 }
 

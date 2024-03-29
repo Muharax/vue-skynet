@@ -53,7 +53,7 @@
 }
 
 .settMenu {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
 }
 
@@ -67,5 +67,17 @@
 
 .active {
   color: var(--font-color-active);
+}
+
+
+@media (max-width: 600px) {
+  .sett {
+    flex-direction: column;
+    padding: 0px;
+  }
+  .sett>* {
+  padding: 0px;
+}
+
 }
 </style>

@@ -5,7 +5,7 @@
 <template>
 
 	<nav class="mobile-menu">
-		<label for="show-menu" class="show-menu">
+		<label for="show-menu" class="show-menu" style="display: flex;">
 			<img src="./img/favicon.png" class="S-Skynet">
 		</label>
 
@@ -33,12 +33,10 @@
 
 <style scoped>
 .mobile-menu {
-	display: block;
 	line-height: 1.6em;
 	font-weight: 400;
 	text-align: center;
 	position: relative;
-	margin: 0 auto;
 }
 
 .mobile-menu ul {
@@ -111,16 +109,14 @@
 	min-width: 100px;
 	padding: 0 20px;
 }
-
-
+.mobile-menu{
+	display: flex;
+}
 /*Style 'show menu' label button and hide it by default*/
 .mobile-menu .show-menu {
 	text-decoration: none;
-	color: #fff;
-	/* background: #8aa8bd; */
 	text-align: center;
-	padding: 10px 15px;
-	display: none;
+	display: block;
 	cursor: pointer;
 	text-transform: uppercase;
 }
@@ -169,8 +165,4 @@
 	width: auto;
 }
 
-/*Display 'show menu' link*/
-.mobile-menu .show-menu {
-	display: block;
-}
 </style>

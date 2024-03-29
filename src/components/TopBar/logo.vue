@@ -2,7 +2,7 @@
 
     <div>
         <router-link to="/">
-            <div>
+            <div class="logo-container">
                 <img id="logo-img" src="./img/logo.png" />
             </div>
         </router-link>
@@ -12,7 +12,23 @@
 </template>
 
 <style scoped>
-#logo-img {
-    padding: 5px;
+.logo-container {
+    width: 100px;
+    display: flex;
+}
+
+.logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+#logo-img {}
+
+@media (max-width: 600px) {
+    .logo-container {
+        width: 60px;
+        margin: 3px;
+    }
+
 }
 </style>

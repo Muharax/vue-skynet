@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="scale09">
     <div class="fade-in">
       <h1>Witaj w Ustawieniach systemu SKYNET!</h1>
       System automatycznie wykrywa z jakiego motywu korzystasz na swoim urządzeniu, <br />polecamy <span class="theme-switch" @click="switchTheme">DARK</span> w trosce o oczy!
@@ -43,5 +43,12 @@ const switchTheme = () => {
 }
 .theme-switch:hover {
   text-decoration:none;
+}
+
+@media (max-width: 600px) {
+  .scale09 {
+    transform: scale(0.9);
+  }
+
 }
 </style>

@@ -20,6 +20,7 @@
   background-color: var(--primary);
   padding: 0.5rem;
   margin-right: 15px;
+  margin-left: 15px;
   border-radius: 5px;
   color: var(--font-color)
 }

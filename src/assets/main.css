@@ -1,24 +1,20 @@
 @import './base.css';
 
 #app {
-	width: 100vw;
-	height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
   text-decoration: none;
-  /* color: hsla(160, 100%, 37%, 1); */
   transition: 0.4s;
 }
 hr{
-	/* width: 100%; */
-}
-*{
-  /* font-family: monospace; */
+	width: 100%;
+  /* border: 1px solid var(--font-color-active); */
 }
 .setHover{
   color: var(--font-color);
-  /* transition: 200ms; */
 }
 .setHover:hover{
   color: var(--font-color-hover);
