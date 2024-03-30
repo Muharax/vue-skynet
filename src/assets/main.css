@@ -1,21 +1,31 @@
 @import './base.css';
 
 #app {
-  display: flex;
-  flex-direction: column;
+
 }
 
 a {
   text-decoration: none;
-  transition: 0.4s;
 }
+
 hr{
 	width: 100%;
   /* border: 1px solid var(--font-color-active); */
 }
-.setHover{
-  color: var(--font-color);
+/* Dostosowanie wyglądu paska przewijania dla przeglądarek opartych na silniku Chromium */
+::-webkit-scrollbar {
+  width: 8px; /* Szerokość paska przewijania */
 }
-.setHover:hover{
-  color: var(--font-color-hover);
+
+::-webkit-scrollbar-track {
+  background: var(--color-background); /* Kolor tła ścieżki przewijania */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary); /* Kolor samego paska przewijania */
+ /* border-radius: 0px; /* Zaokrąglenie rogów paska przewijania */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Kolor paska przewijania po najechaniu myszką */
 }

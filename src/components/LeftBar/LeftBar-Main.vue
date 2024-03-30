@@ -2,14 +2,20 @@
   <div :class="['sidebar', expanded ? 'expanded' : 'no-expanded']">
     <div key="0" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']"
       @click="toggleExpanded">
-      <div class="menu-ico">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-          <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+      <div class="menu-ico-ham">
+        <!-- Warunkowe wyświetlanie ikon -->
+        <svg v-if="expanded" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+          <!-- Ikona A -->
+          <path d="M440-240 200-480l240-240 56 56-183 184 183 184-56 56Zm264 0L464-480l240-240 56 56-183 184 183 184-56 56Z" />
+        </svg>
+        <svg v-else xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+          <!-- Ikona B -->
+          <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
         </svg>
       </div>
     </div>
     <!-- ============================= LOGIN ============================== -->
-    <router-link to="/login" title="" class="menu-item setHover"
+    <router-link to="/login" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/login')">
       <div class="menu-ico" :class="[$route.path === '/login' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -25,7 +31,7 @@
       </div>
     </router-link>
     <!-- ============================= SETTINGS ============================== -->
-    <router-link to="/settings" title="" class="menu-item setHover"
+    <router-link to="/settings" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/settings')">
       <div class="menu-ico" :class="[$route.path === '/settings' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -41,7 +47,7 @@
     </router-link>
     <hr>
     <!-- ============================= AI ============================== -->
-    <router-link to="/Ai" title="" class="menu-item setHover"
+    <router-link to="/Ai" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/Ai')">
       <div class="menu-ico" :class="[$route.path === '/Ai' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -56,9 +62,10 @@
       </div>
     </router-link>
     <!-- ============================= HOME ============================== -->
-    <router-link to="/" title="" class="menu-item setHover" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item',
+    <router-link to="/" title="" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item',
   ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeTab' : '']" @click="handleItemClick('/')">
-      <div class="menu-ico" :class="[expanded ? 'show-description' : '', ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'menu-ico-active' : '']">
+      <div class="menu-ico"
+        :class="[expanded ? 'show-description' : '', ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
           <path
             d="M160-120v-375l-72 55-48-64 120-92v-124h80v63l240-183 440 336-48 63-72-54v375H160Zm80-80h200v-160h80v160h200v-356L480-739 240-556v356Zm-80-560q0-50 35-85t85-35q17 0 28.5-11.5T320-920h80q0 50-35 85t-85 35q-17 0-28.5 11.5T240-760h-80Zm80 560h480-480Z" />
@@ -71,7 +78,7 @@
     </router-link>
 
     <!-- ============================= LOGOUT ============================== -->
-    <router-link to="/logout" title="" class="menu-item setHover"
+    <router-link to="/logout" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/logout')">
       <div class="menu-ico" :class="[$route.path === '/logout' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -127,18 +134,24 @@ window.addEventListener('resize', checkScreenWidth);
   text-align: center;
   padding: 4px 14px 4px 14px;
   cursor: pointer;
+  
+  color: var(--font-color);
 }
+.menu-item:hover > * {
+  transition: 0.3s;
+  color: var(--font-color-active);
+  fill: var(--font-color-active);
+}
+
 .menu-ico {
   width: 30px;
   height: 24px;
 }
 
-.menu-ico>svg:hover {
+.menu-ico-active {
   fill: var(--font-color-active);
 }
-.menu-ico-active{
-  fill: var(--font-color-active);
-}
+
 .expanded {
   min-width: 13rem;
   /* animation: slideIn 0.5s ease forwards; */
@@ -191,17 +204,20 @@ window.addEventListener('resize', checkScreenWidth);
 .sidebar>*:first-child {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  flex-direction: row-reverse;
 }
 
 .sidebar>*:last-child {
   margin-top: auto;
   margin-bottom: 1rem;
 }
+
 @keyframes slideIn {
   0% {
-    
+
     transform: translateX(-20%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -209,7 +225,5 @@ window.addEventListener('resize', checkScreenWidth);
 
 
 
-@media screen and (max-width: 600px) {
-
-}
+@media screen and (max-width: 600px) {}
 </style>

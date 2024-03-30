@@ -1,12 +1,12 @@
 <template>
 
-    <div>
+    <!-- <div class=""> -->
         <router-link to="/">
             <div class="logo-container">
                 <img id="logo-img" src="./img/logo.png" />
             </div>
         </router-link>
-    </div>
+    <!-- </div> -->
 
 
 </template>

@@ -11,7 +11,7 @@ input{
   outline: none;
 }
 
-html, body, #app, .line{
+html, body, #app{
   height: 100%;
 }
 

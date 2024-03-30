@@ -29,7 +29,7 @@ import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
 .TopBar {
   background-color: var(--color-background);
   box-shadow: 0px 0px 2px 1px var(--box-shadow);
-  padding-right: 15px;
+  padding: 0px 7px 0px 7px;
   /* margin-bottom: 10px; */
   justify-content: space-between;
   width: 100%;

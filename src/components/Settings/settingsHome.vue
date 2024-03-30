@@ -37,7 +37,7 @@ const switchTheme = () => {
 
 .theme-switch {
   cursor: pointer;
-  color: var(--primary);/* Kolor tekstu dla DARK */
+  color: var(--font-color-active);/* Kolor tekstu dla DARK */
   font-weight: bold;
   text-decoration:underline;
 }

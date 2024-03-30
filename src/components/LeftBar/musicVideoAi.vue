@@ -1,5 +1,39 @@
 <template>
   <div class="container-music">
+    <div>Pan co waży nasze losy feat. SUNO new</div>
+    <hr style="width: 100%;">
+
+    <div class="fs">
+      <div class="sound">
+        <div class="cont-music">
+          <div>V0.1</div>
+          <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+            <source src="/music/2/202.mp3" type="audio/mpeg">
+            Twoja przeglądarka nie obsługuje elementu audio.
+          </audio>
+        </div>
+
+        <div class="cont-music">
+          <div>V0.2</div>
+          <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+            <source src="/music/2/203.mp3" type="audio/mpeg">
+            Twoja przeglądarka nie obsługuje elementu audio.
+          </audio>
+        </div>
+      </div>
+      <div class="video">
+        <div class="cont-ai">
+          <video class="vds" controls controlsList="nodownload noplaybackrate nofullscreen">
+            <source src="/music/2/1vv.mp4" type="video/mp4">
+            Twoja przeglądarka nie obsługuje odtwarzacza wideo.
+          </video>
+        </div>
+      </div>
+
+    </div>
+
+
+    <hr style="width: 100%; margin-top: 5px;">
     <div>Pan co waży nasze losy feat. SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -37,7 +71,7 @@
             Twoja przeglądarka nie obsługuje elementu audio.
           </audio>
         </div>
-     
+
       </div>
 
       <div class="fk">
