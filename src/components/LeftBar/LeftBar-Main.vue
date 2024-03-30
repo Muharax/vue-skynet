@@ -141,6 +141,7 @@ window.addEventListener('resize', checkScreenWidth);
 }
 .expanded {
   min-width: 13rem;
+  /* animation: slideIn 0.5s ease forwards; */
 }
 
 .no-expanded {
@@ -195,6 +196,15 @@ window.addEventListener('resize', checkScreenWidth);
 .sidebar>*:last-child {
   margin-top: auto;
   margin-bottom: 1rem;
+}
+@keyframes slideIn {
+  0% {
+    
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 

@@ -9,7 +9,7 @@
         <ul>
           <li><router-link to="/settings/theme" class="settLink"
               :class="{ 'active': $route.path === '/settings/theme' }">
-              Przejdź do ustawień motywu
+              Motyw
             </router-link></li>
           <!-- <li><router-link to="/settings/language" class="settLink"
               :class="{ 'active': $route.path === '/settings/language' }">

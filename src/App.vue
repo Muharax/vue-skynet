@@ -33,7 +33,7 @@ import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
   /* margin-bottom: 10px; */
   justify-content: space-between;
   width: 100%;
-  /* height: 75px; */
+  height: 75px;
   /* position: fixed; */
   /* top: 0; */
   /* left: 0; */
@@ -44,7 +44,7 @@ import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
 }
 
 .line {
-  /* height: calc(100vh - 75px); */
+  height: calc(100vh - 75px);
   /* Wysokość ekranu minus wysokość TopBar */
   display: flex;
 }

@@ -4,6 +4,8 @@
     <hr>
     Hello Home, how are you?
     <hr>
+
+
     <!-- <ul>
     <li><h2>Ogłoszenia promowane</h2></li>
   </ul> -->
@@ -38,6 +40,7 @@
 // });
 </script>
 <style scoped>
+
 .home {}
 
 .ads-descriptions {

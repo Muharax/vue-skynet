@@ -7,7 +7,7 @@ import socialMedia from './socialMedia.vue';
 
 <template>
   <logo></logo>
-  <socialMedia />
+  <!-- <socialMedia /> -->
   <login></login>
 
 </template>
