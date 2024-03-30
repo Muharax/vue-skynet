@@ -5,6 +5,9 @@
     --box-shadow:#345366;
     --font-color-active: #c41b23;
     --font-color-hover: #d04242;
+
+    --primary-color:#000000;
+
   }
   
   :root[data-theme="dark"] {
@@ -14,5 +17,7 @@
     --box-shadow:var(--primary);
     --font-color-active: #25cece;
     --font-color-hover: #43b2c1;
+    
+    --primary-color:#ffffff;
   }
   

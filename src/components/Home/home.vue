@@ -3,8 +3,8 @@
     <h1>HOME</h1>
     <hr>
     Hello Home, how are you?
-    <hr>
-
+    <hr style="margin-bottom: 40px;">
+<clock />
 
     <!-- <ul>
     <li><h2>Ogłoszenia promowane</h2></li>
@@ -25,6 +25,7 @@
   </div>
 </template>
 <script setup>
+import clock from './clock.vue';
 // import { ref, onMounted } from 'vue';
 // import axios from 'axios';
 // import { SERVER_URL } from '../../config.js';
