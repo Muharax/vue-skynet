@@ -4,7 +4,7 @@
     <hr>
     Hello Home, how are you?
     <hr style="margin-bottom: 40px;">
-<clock />
+    <clock />
 
     <!-- <ul>
     <li><h2>Ogłoszenia promowane</h2></li>
@@ -24,6 +24,7 @@
     </div> -->
   </div>
 </template>
+
 <script setup>
 import clock from './clock.vue';
 // import { ref, onMounted } from 'vue';
@@ -41,7 +42,6 @@ import clock from './clock.vue';
 // });
 </script>
 <style scoped>
-
 .home {}
 
 .ads-descriptions {

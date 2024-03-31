@@ -1,12 +1,10 @@
 <template>
   <div class="LOGOWANIE">
     <div v-if="authError" class="error-message">{{ authError }}</div>
-
     <div class="LG">
       <div class="logos">
         <img src="../../assets/logo.svg" alt="" class="logos-SWG" />
       </div>
-
       <div id="logowanie-s">
         <form @submit.prevent="handleSubmit">
           <div class="name">
@@ -17,7 +15,6 @@
             <input type="text" id="first" autoComplete="off" autoFocus name="user" placeholder="Login"
               v-model="username" class="w100" />
           </div>
-
           <div class="pass">
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
               <path
@@ -26,7 +23,6 @@
             <input type="password" id="second" autoComplete="off" name="pass" placeholder="Hasło" v-model="password"
               class="w100" />
           </div>
-
           <div id="btn-log-in">
             <div class="wrapper">
               <div class="box">
@@ -36,7 +32,6 @@
           </div>
         </form>
       </div>
-
       <div>
         <img title="Welcome" class="skynet-division" src="../../assets/img/skynet-division-png.png"
           alt="SKYNET DIVISION" />
@@ -44,26 +39,19 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref } from 'vue';
-
 const username = ref('');
 const password = ref('');
 const authError = ref('');
-
 const handleSubmit = () => {
-
 };
 </script>
-
-
 <style scoped>
 .icon {
   fill: var(--primary);
   /* Ustaw wypełnienie ścieżki na aktualny kolor */
 }
-
 .LOGOWANIE {
   width: 290px;
   min-height: 400px;
@@ -79,13 +67,11 @@ const handleSubmit = () => {
   box-shadow: 0px 0px 20px 3px var(--box-shadow);
   align-items: center;
 }
-
 .LG {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .logos {
   background-color: #000;
   border-radius: 8px;
@@ -93,30 +79,22 @@ const handleSubmit = () => {
   justify-content: center;
   width: 210px;
 }
-
 #logowanie-s {
   margin-top: 30px;
 }
-
-
-
 .logos-SWG {
   margin: 20px;
   object-fit: contain;
   width: 130px;
-
   animation: pulse 2s infinite;
 }
-
 .error-message {
   position: relative;
   top: -25px;
 }
-
 .show {
   display: block;
 }
-
 .close-btn {
   width: 40px;
   text-align: center;
@@ -127,44 +105,32 @@ const handleSubmit = () => {
   font-size: 24px;
   cursor: pointer;
 }
-
 .close-btn span {
   cursor: pointer;
-
 }
-
 .close-btn span:hover {
   color: red
 }
-
 .close-btn:hover {
-
   background-color: rgb(0, 0, 0);
   text-align: center;
-
 }
-
 .name,
 .pass {
-  ;
   align-items: center;
 }
-
 .name input,
 .pass input {
   margin-left: 4px;
 }
-
 .GPSROP {
   font-family: monospace;
 }
-
 .rop {
   width: 200px;
   position: relative;
   top: -20px;
 }
-
 .skynet-division {
   width: 233px;
   box-shadow: 0px 0px 5px 1px black;
@@ -174,28 +140,23 @@ const handleSubmit = () => {
   transition: 0.2s;
   cursor: help;
 }
-
 .skynet-division:hover {
   opacity: 1;
 }
-
 @keyframes pulse {
   0% {
     filter: drop-shadow(0px 0px 13px rgba(0, 0, 0, 0.7));
     /* box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); */
   }
-
   50% {
     filter: drop-shadow(0px 0px 13px rgba(0, 255, 255, 0.7));
     /* box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); */
   }
-
   100% {
     filter: drop-shadow(0px 0px 13px rgba(0, 0, 0, 0.7));
     /* box-shadow: 0 0 0 15px rgba(255, 0, 0, 0); */
   }
 }
-
 @media (max-width: 600px) {
   .LOGOWANIE {
     width: auto;

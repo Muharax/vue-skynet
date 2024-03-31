@@ -61,20 +61,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.toggle {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  border: 0;
-  border-radius: 4px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 100px;
-  cursor: pointer;
-}
-
-.toggle:focus {
-  outline: none;
-}
 
 .clock-container {
   display: flex;

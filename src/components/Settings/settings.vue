@@ -5,36 +5,27 @@
       <hr>
     </div>
     <div class="sett">
-      <div class="settMenu">
-        <ul>
-          <li><router-link to="/settings/theme" class="settLink"
-              :class="{ 'active': $route.path === '/settings/theme' }">
-              Motyw
-            </router-link></li>
-          <!-- <li><router-link to="/settings/language" class="settLink"
-              :class="{ 'active': $route.path === '/settings/language' }">
-              Przejdź do ustawień języka
-            </router-link>
-          </li> -->
-
-          <!-- <li><router-link to="/settings/cookies" class="settLink"
-              :class="{ 'active': $route.path === '/settings/cookies' }">Przejdź do ustawień ciasteczek</router-link>
-          </li> -->
-        </ul>
-      </div>
       <div class="settRouter">
         <router-view></router-view>
       </div>
+      <details>
+          <summary>Motyw</summary>
+          <theme />
+        </details>
     </div>
   </div>
 </template>
 
 <script setup>
-
+import theme from './theme/theme.vue';
 
 </script>
 
 <style scoped>
+summary {
+  cursor: pointer;
+}
+
 .settings {
   height: 100%;
 }
@@ -49,14 +40,9 @@
 
 .sett {
   display: flex;
+  flex-direction: column;
   padding: 5px;
 }
-
-.settMenu {
-  /* display: flex; */
-  flex-direction: column;
-}
-
 .settRouter {
   /* background-color: var(--primary); */
 }
@@ -72,12 +58,12 @@
 
 @media (max-width: 600px) {
   .sett {
-    flex-direction: column;
+    padding: 10px;
+  }
+
+  .sett>* {
     padding: 0px;
   }
-  .sett>* {
-  padding: 0px;
-}
 
 }
 </style>

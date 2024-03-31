@@ -1,5 +1,58 @@
 <template>
   <div class="container-music">
+    <div>ROTA feat by SUNO</div>
+    <hr style="width: 100%;">
+    <div class="fs">
+
+      <div class="cont-music">
+        <div>V0.3</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+          <source src="/music/3/rota1.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.3</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+          <source src="/music/3/rota2.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.3</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+          <source src="/music/3/rota3.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.3</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+          <source src="/music/3/rota4.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <hr style="width: 100%; margin-top: 5px;">
+
+      <div class="cont-music">
+        <div>V0.1</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate nofullscreen">
+          <source src="/music/3/rota4.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+    </div>
+
+
+
+
+
+
     <div>Pan co waży nasze losy feat. SUNO new</div>
     <hr style="width: 100%;">
 

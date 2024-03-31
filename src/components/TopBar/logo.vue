@@ -1,16 +1,10 @@
 <template>
-
-    <!-- <div class=""> -->
-        <router-link to="/">
-            <div class="logo-container">
-                <img id="logo-img" src="./img/logo.png" />
-            </div>
-        </router-link>
-    <!-- </div> -->
-
-
+    <router-link to="/">
+        <div class="logo-container">
+            <img id="logo-img" src="./img/logo.png" />
+        </div>
+    </router-link>
 </template>
-
 <style scoped>
 .logo-container {
     width: 100px;
@@ -22,13 +16,7 @@
     height: auto;
 }
 
-#logo-img {}
-
 @media (max-width: 600px) {
-    .logo-container {
-        width: 60px;
-        margin: 3px;
-    }
 
 }
 </style>

@@ -33,7 +33,7 @@
 	width: 10px;
 	background-color: #007bff;
 	margin: 0 2px;
-	/* animation: equalizerAnimation 0.2s infinite alternate; */
+	/* animation: equalizerAnimation 0.5s infinite alternate; */
   }
   
   @keyframes equalizerAnimation {
