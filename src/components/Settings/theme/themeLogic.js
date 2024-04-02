@@ -43,6 +43,7 @@ export const initializeTheme = () => {
     // Sprawdź preferencje kolorów systemu operacyjnego
     const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
     selectedTheme.value = darkModeQuery.matches ? 'true' : 'false';
+    console.log(selectedTheme.value);
     updateTheme();
   }
 

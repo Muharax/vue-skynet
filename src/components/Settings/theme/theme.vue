@@ -9,8 +9,7 @@
             color="red"></path>
         </svg>
         <label class="switch btn-color-mode-switch">
-          <input value="true" id="color_mode" name="color_mode" type="checkbox" v-model="selectedTheme"
-            @change="updateTheme" :checked="updateChecked">
+          <input value="true" id="color_mode" name="color_mode" type="checkbox" v-model="selectedTheme" @change="updateTheme" :checked="updateChecked">
           <label class="btn-color-mode-switch-inner" :data-off="lightText" :data-on="darkText" for="color_mode"></label>
         </label>
         <svg viewBox="0 0 16 16" class="bi bi-moon-stars-fill" fill="currentColor" width="23"
