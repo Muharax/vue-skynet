@@ -60,3 +60,4 @@ const setTheme = () => {
   const isDarkMode = selectedTheme.value;
   root.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
 };
+

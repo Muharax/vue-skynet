@@ -18,7 +18,6 @@
 
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue';
-
 interface Unit {
   [unitName: string]: number;
 }
@@ -32,7 +31,7 @@ interface Converter {
 const converters: Converter[] = reactive([
   {
     name: 'Długość',
-    iconPath: '../../src/assets/icons/length.svg',
+    iconPath: './icons/length.svg',
     units: {
       "nanometry [nm]": 1e9,
       "mikrometry [µm]": 1e6,
@@ -48,7 +47,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Powierzchnia',
-    iconPath: '../../src/assets/icons/surface.svg',
+    iconPath: './icons/surface.svg',
     units: {
       "milimetry kwadratowe [mm²]": 1000000,
       "centymetry kwadratowe [cm²]": 10000,
@@ -66,7 +65,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Ciśnienie',
-    iconPath: '../../src/assets/icons/pressure.svg',
+    iconPath: './icons/pressure.svg',
     units: {
       "paskale [Pa]": 1,
       "bary [bar]": 0.00001,
@@ -83,7 +82,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Temperatura',
-    iconPath: '../../src/assets/icons/temperature.svg',
+    iconPath: './icons/temperature.svg',
     units: {
       "Celsius (°C)": 1,
       "Fahrenheit (°F)": 1,
@@ -107,7 +106,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Masa',
-    iconPath: '../../src/assets/icons/mass.svg',
+    iconPath: './icons/mass.svg',
     units: {
       "kilogramy [kg]": 1,
       "gramy [g]": 1000,
@@ -127,7 +126,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Objętość',
-    iconPath: '../../src/assets/icons/capac.svg',
+    iconPath: './icons/capac.svg',
     units: {
       "litry [l]": 1,
       "mililitry [ml]": 1000,
@@ -149,7 +148,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Prędkość',
-    iconPath: '../../src/assets/icons/speed.svg',
+    iconPath: './icons/speed.svg',
     units: {
       'metry na sekundę (m/s)': 1,
       'kilometry na godzinę (km/h)': 3.6,
@@ -165,7 +164,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Moc',
-    iconPath: '../../src/assets/icons/power.svg',
+    iconPath: './icons/power.svg',
     units: {
       "waty [W]": 1,
       "kilowaty [kW]": 0.001,
@@ -182,7 +181,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Siła',
-    iconPath: '../../src/assets/icons/force.svg',
+    iconPath: './icons/force.svg',
     units: {
       "newtony [N]": 1,
       "kilonewtony [kN]": 0.001,
@@ -198,7 +197,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Energia',
-    iconPath: '../../src/assets/icons/energy.svg',
+    iconPath: './icons/energy.svg',
     units: {
       "dżule [J]": 1,
       "kilodżule [kJ]": 0.001,
@@ -213,7 +212,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Ilość',
-    iconPath: '../../src/assets/icons/quantity.svg',
+    iconPath: './icons/quantity.svg',
     units: {
       "sztuki [szt.]": 1,
       "tuziny [tuz.]": 1 / 12,
@@ -227,7 +226,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Światło',
-    iconPath: '../../src/assets/icons/light.svg',
+    iconPath: './icons/light.svg',
     units: {
       "lumeny [lm]": 1,
       "kandele [cd]": 1 / 683,
@@ -237,7 +236,7 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Czas',
-    iconPath: '../../src/assets/icons/time.svg',
+    iconPath: './icons/time.svg',
     units: {
       "sekundy [s]": 1,
       "minuty [min]": 1 / 60,
@@ -250,18 +249,18 @@ const converters: Converter[] = reactive([
   },
   {
     name: 'Pamięć',
-    iconPath: '../../src/assets/icons/memory.svg',
+    iconPath: './icons/memory.svg',
     units: {
       "bity [b]": 1,
-      "bajty [B]": 0.125, // 1 bajt = 8 bitów, więc przelicznik pozostaje bez zmian
-      "kilobajty [KB]": 1 / 8192, // 1 kilobajt = 1024 bajty
-      "megabajty [MB]": 1 / (1024 * 8192), // 1 megabajt = 1024 kilobajty
-      "gigabajty [GB]": 1 / (1024 * 1024 * 8192), // 1 gigabajt = 1024 megabajty
-      "terabajty [TB]": 1 / (1024 * 1024 * 1024 * 8192), // 1 terabajt = 1024 gigabajty
-      "petabajty [PB]": 1 / (1024 * 1024 * 1024 * 1024 * 8192), // 1 petabajt = 1024 terabajty
-      "eksabajty [EB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 8192), // 1 eksabajt = 1024 petabajty
-      "zettabajty [ZB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192), // 1 zettabajt = 1024 eksabajty
-      "yottabajty [YB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192), // 1 yottabajt = 1024 zettabajty
+      "bajty [B]": 0.125, 
+      "kilobajty [KB]": 1 / 8192, 
+      "megabajty [MB]": 1 / (1024 * 8192), 
+      "gigabajty [GB]": 1 / (1024 * 1024 * 8192), 
+      "terabajty [TB]": 1 / (1024 * 1024 * 1024 * 8192), 
+      "petabajty [PB]": 1 / (1024 * 1024 * 1024 * 1024 * 8192), 
+      "eksabajty [EB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 8192), 
+      "zettabajty [ZB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192), 
+      "yottabajty [YB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192), 
     },
   }
 ]);

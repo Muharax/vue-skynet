@@ -3,28 +3,46 @@
 
   <div class="container-music">
 <!-- =============================================================== -->
-    <div>feat. SUNO</div>
+    <div>V0.21 feat. SUNO</div>
   <hr style="width: 100%;">
   <div class="fs">
 
     <div class="cont-music">
-      <div>V0.3</div>
+      <div>V0.21</div>
       <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/1 (2).mp3" type="audio/mpeg">
+        <source src="/music/4/4.mp3" type="audio/mpeg">
         Twoja przeglądarka nie obsługuje elementu audio.
       </audio>
     </div>
+
     <div class="cont-music">
-      <div>V0.3</div>
+      <div>V0.21</div>
       <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/1 (3).mp3" type="audio/mpeg">
+        <source src="/music/4/2.mp3" type="audio/mpeg">
         Twoja przeglądarka nie obsługuje elementu audio.
       </audio>
     </div>
+
     <div class="cont-music">
-      <div>V0.3</div>
+      <div>V0.21</div>
       <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/1 (1).mp3" type="audio/mpeg">
+        <source src="/music/4/5.mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+      </audio>
+    </div>
+    
+    <div class="cont-music">
+      <div>V0.21</div>
+      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+        <source src="/music/4/6.mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+      </audio>
+    </div>
+
+    <div class="cont-music">
+      <div>V0.21</div>
+      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+        <source src="/music/4/1.mp3" type="audio/mpeg">
         Twoja przeglądarka nie obsługuje elementu audio.
       </audio>
     </div>
