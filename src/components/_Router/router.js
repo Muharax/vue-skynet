@@ -10,6 +10,9 @@ import Cookie from '../Settings/cookie/cookie.vue';
 
 import Logout from '../Logowanie/logout.vue';
 import AI from '../LeftBar/musicVideoAi.vue';
+import Ads from '../Ads/Ads.vue'
+
+import UnitConverter from '../Unit-Converter/Unit-Converter-Main.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -18,6 +21,8 @@ const router = createRouter({
     { path: '/login', component: Logowanie },
     { path: '/Ai', component: AI },
     { path: '/vue-skynet/', component: Home },
+    { path: '/Ads', component: Ads },
+    { path: '/Unit-Converter', component: UnitConverter },
     {
       path: '/settings',
       component: Settings,

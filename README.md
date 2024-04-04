@@ -1,8 +1,3 @@
-# Welcome VUE
-SkyNET incoming
-## How are you ?
-Fine
-
 ## Project Setup
 
 ```sh
