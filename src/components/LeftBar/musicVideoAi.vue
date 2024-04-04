@@ -1,6 +1,38 @@
 <template>
-  <Suspense></Suspense>
+  
+
   <div class="container-music">
+<!-- =============================================================== -->
+    <div>feat. SUNO</div>
+  <hr style="width: 100%;">
+  <div class="fs">
+
+    <div class="cont-music">
+      <div>V0.3</div>
+      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+        <source src="/music/4/1 (2).mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+      </audio>
+    </div>
+    <div class="cont-music">
+      <div>V0.3</div>
+      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+        <source src="/music/4/1 (3).mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+      </audio>
+    </div>
+    <div class="cont-music">
+      <div>V0.3</div>
+      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+        <source src="/music/4/1 (1).mp3" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje elementu audio.
+      </audio>
+    </div>
+
+  </div>
+
+
+  <!-- =============================================================== -->
     <div>AI, MS, SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -20,10 +52,10 @@
           Twoja przeglądarka nie obsługuje elementu audio.
         </audio>
       </div>
-      </div>  
+    </div>
 
 
-
+<!-- =============================================================== -->
     <div>ROTA feat by SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -76,7 +108,7 @@
 
 
 
-
+<!-- =============================================================== -->
     <div>Pan co waży nasze losy feat. SUNO new</div>
     <hr style="width: 100%;">
 
@@ -109,7 +141,7 @@
 
     </div>
 
-
+<!-- =============================================================== -->
     <hr style="width: 100%; margin-top: 5px;">
     <div>Pan co waży nasze losy feat. SUNO</div>
     <hr style="width: 100%;">
