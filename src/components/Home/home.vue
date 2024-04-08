@@ -1,10 +1,8 @@
 <template>
   <div class="home">
-    <h1>HOME</h1>
-    <hr>
-    Hello Home, how are you?
-    <hr style="margin-bottom: 40px;">
-    <clock />
+    <div style="margin-bottom: 40px;"></div>
+      <clock />
+    
 
     <!-- <ul>
     <li><h2>Ogłoszenia promowane</h2></li>

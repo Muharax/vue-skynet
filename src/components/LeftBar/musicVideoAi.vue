@@ -1,56 +1,103 @@
 <template>
-  
+
+  <!-- <Loader v-if="isLoading" />
+
+  <div v-else> -->
 
   <div class="container-music">
-<!-- =============================================================== -->
+    <div>V0.008424 feat. SUNO</div>
+    <hr>
+
+    <div class="dfc">
+
+      <div class="fa">
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/7.mp3" />
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/1.mp3" />
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/2.mp3" />
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/4.mp3" />
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/5.mp3" />
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/3.mp3" />
+        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0604242220/W mgle przeszłości i jutra znak(1).mp3" />
+
+      </div>
+      <!-- =============================================================== -->
+      <div class="fa">
+        <AudioPlayerV1 title="Aerosmith - I Don't Want To Miss A Thing" path="/music/0804241306/6.mp3" />
+
+        <AudioPlayerV1 title="Może to złudzenie, może to sen"
+          path="/music/0604242220/Może to złudzenie, może to sen.mp3" />
+        <AudioPlayerV1 title="Created by Nanashi_Zero" path="/music/0604242220/Nanashi_ZerYouTubeNanashi_Zero.mp3" />
+        <AudioPlayerV1 title="Święty kocha Boga, życia mu nie szkoda"
+          path="/music/0604242220/Święty kocha Boga, życia mu nie szkoda.mp3" />
+      </div>
+      <div class="fa">
+        <div style="position: relative;top: 30px;left: 15px; z-index: 999;">
+          W mgle przeszłości + af ef
+        </div>
+        <div class="video">
+          <div class="cont-ai">
+            <video class="vds" controls controlsList="nodownload noplaybackrate">
+              <source src="/music/0604242220/1.mp4" type="video/mp4">
+              Twoja przeglądarka nie obsługuje odtwarzacza wideo.
+            </video>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <hr>
     <div>V0.21 feat. SUNO</div>
-  <hr style="width: 100%;">
-  <div class="fs">
+    <hr style="width: 100%;">
+    <div class="fs">
 
-    <div class="cont-music">
-      <div>V0.21</div>
-      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/4.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie obsługuje elementu audio.
-      </audio>
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/4/4.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/4/2.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/4/5.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/4/6.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/4/1.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
     </div>
 
-    <div class="cont-music">
-      <div>V0.21</div>
-      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/2.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie obsługuje elementu audio.
-      </audio>
-    </div>
 
-    <div class="cont-music">
-      <div>V0.21</div>
-      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/5.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie obsługuje elementu audio.
-      </audio>
-    </div>
-    
-    <div class="cont-music">
-      <div>V0.21</div>
-      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/6.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie obsługuje elementu audio.
-      </audio>
-    </div>
-
-    <div class="cont-music">
-      <div>V0.21</div>
-      <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
-        <source src="/music/4/1.mp3" type="audio/mpeg">
-        Twoja przeglądarka nie obsługuje elementu audio.
-      </audio>
-    </div>
-
-  </div>
-
-
-  <!-- =============================================================== -->
+    <!-- =============================================================== -->
     <div>AI, MS, SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -73,7 +120,7 @@
     </div>
 
 
-<!-- =============================================================== -->
+    <!-- =============================================================== -->
     <div>ROTA feat by SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -126,7 +173,7 @@
 
 
 
-<!-- =============================================================== -->
+    <!-- =============================================================== -->
     <div>Pan co waży nasze losy feat. SUNO new</div>
     <hr style="width: 100%;">
 
@@ -159,7 +206,7 @@
 
     </div>
 
-<!-- =============================================================== -->
+    <!-- =============================================================== -->
     <hr style="width: 100%; margin-top: 5px;">
     <div>Pan co waży nasze losy feat. SUNO</div>
     <hr style="width: 100%;">
@@ -274,14 +321,39 @@
     </div>
 
   </div>
-
+  <!-- </div> -->
 </template>
 
-<script setup>
+<script setup lang="ts">
+import AudioPlayerV1 from '../_Core/AudioPlayerV1.vue';
+import { ref, onMounted } from 'vue';
 
+import Loader from '../_Core/Loader.vue';
+
+const isLoading = ref(true);
+
+
+onMounted(async () => {
+  // Załóżmy, że tutaj jest wywołanie do API
+  // await new Promise(resolve => setTimeout(resolve, 3000)); // symulacja opóźnienia
+  isLoading.value = false; // Ukryj loader po załadowaniu danych
+});
 </script>
 
 <style>
+.dfc {
+  display: flex;
+  width: 80%;
+}
+.dfc>.fa{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.fa {
+  width: -webkit-fill-available;
+}
+
 .container-music>.fk {
   display: flex;
 }
@@ -328,7 +400,7 @@ audio {
   height: 30px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   .vds {
     width: 90%;
     height: 90%;
@@ -336,6 +408,10 @@ audio {
 
   audio {
     width: 200px;
+  }
+
+  .dfc {
+    flex-direction: column;
   }
 }
 </style>

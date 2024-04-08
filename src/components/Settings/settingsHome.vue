@@ -2,7 +2,6 @@
   <div class="scale09">
     <div class="fade-in">
       <h3>Witaj w Ustawieniach systemu SKYNET!</h3>
-      System automatycznie wykrywa z jakiego motywu korzystasz na swoim urządzeniu
       <div>
         <img src="/src/assets/img/skynet-division.png" alt="SKYNET DIVISION">
       </div>

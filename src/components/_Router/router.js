@@ -12,6 +12,9 @@ import Logout from '../Logowanie/logout.vue';
 import AI from '../LeftBar/musicVideoAi.vue';
 import Ads from '../Ads/Ads.vue'
 
+import Geometry from '../Geometry/Geometry.vue';
+import Game from '../Game/Game.vue';
+
 import UnitConverter from '../Unit-Converter/Unit-Converter-Main.vue';
 
 const router = createRouter({
@@ -23,6 +26,8 @@ const router = createRouter({
     { path: '/vue-skynet/', component: Home },
     { path: '/Ads', component: Ads },
     { path: '/Unit-Converter', component: UnitConverter },
+    { path: '/Geometry', component: Geometry },
+    { path: '/Game', component: Game },
     {
       path: '/settings',
       component: Settings,

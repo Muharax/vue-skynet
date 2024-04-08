@@ -286,7 +286,7 @@ function convertFrom(unit: string) {
   } else {
     const baseValue = values[unit] / activeConverter.value.units[unit];
     for (const [key, conversionRate] of Object.entries(activeConverter.value.units)) {
-      const convertedValue = (baseValue * conversionRate).toFixed(3);
+      const convertedValue = (baseValue * conversionRate).toFixed(10);
       values[key] = Number(convertedValue);
     }
   }
