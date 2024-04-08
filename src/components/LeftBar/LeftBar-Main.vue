@@ -49,7 +49,7 @@
     </router-link>
     <hr>
     <!-- ============================= AI ============================== -->
-    <router-link to="/Ai" title="" class="menu-item"
+    <!-- <router-link to="/Ai" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/Ai')">
       <div class="menu-ico" :class="[$route.path === '/Ai' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -62,7 +62,7 @@
       ]">
         AI
       </div>
-    </router-link>
+    </router-link> -->
     <!-- ============================= HOME ============================== -->
     <router-link to="/" title="" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item',
     ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeTab' : '']" @click="handleItemClick('/')">

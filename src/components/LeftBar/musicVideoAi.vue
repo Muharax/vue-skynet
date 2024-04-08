@@ -11,29 +11,64 @@
     <div class="dfc">
 
       <div class="fa">
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/7.mp3" />
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/1.mp3" />
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/2.mp3" />
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/4.mp3" />
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/5.mp3" />
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0804241306/3.mp3" />
-        <AudioPlayerV1 title="W mgle przeszłości" path="/music/0604242220/W mgle przeszłości i jutra znak(1).mp3" />
+        
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/0804241306/7.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/0804241306/1.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/0804241306/2.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/0804241306/4.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/0804241306/5.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
+      <div class="cont-music">
+        <div>V0.21</div>
+        <audio ref="audioPlayer" controls controlsList="nodownload noplaybackrate">
+          <source src="/music/0804241306/7.mp3" type="audio/mpeg">
+          Twoja przeglądarka nie obsługuje elementu audio.
+        </audio>
+      </div>
+
 
       </div>
-      <!-- =============================================================== -->
-      <div class="fa">
-        <AudioPlayerV1 title="Aerosmith - I Don't Want To Miss A Thing" path="/music/0804241306/6.mp3" />
 
-        <AudioPlayerV1 title="Może to złudzenie, może to sen"
-          path="/music/0604242220/Może to złudzenie, może to sen.mp3" />
-        <AudioPlayerV1 title="Created by Nanashi_Zero" path="/music/0604242220/Nanashi_ZerYouTubeNanashi_Zero.mp3" />
-        <AudioPlayerV1 title="Święty kocha Boga, życia mu nie szkoda"
-          path="/music/0604242220/Święty kocha Boga, życia mu nie szkoda.mp3" />
-      </div>
+
       <div class="fa">
         <div style="position: relative;top: 30px;left: 15px; z-index: 999;">
           W mgle przeszłości + af ef
         </div>
+
         <div class="video">
           <div class="cont-ai">
             <video class="vds" controls controlsList="nodownload noplaybackrate">
