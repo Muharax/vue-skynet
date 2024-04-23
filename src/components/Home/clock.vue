@@ -53,11 +53,14 @@ const updateClockHands = () => {
 };
 
 onMounted(() => {
+  updateClockHands();
+  setTime();
   setInterval(() => {
     updateClockHands();
     setTime();
   }, 1000);
 });
+
 </script>
 
 <style scoped>

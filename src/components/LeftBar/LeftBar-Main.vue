@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sidebar', expanded ? 'expanded' : 'no-expanded']">
+  <div class="eo" :class="['sidebar', expanded ? 'expanded' : 'no-expanded']">
     <div key="0" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']"
       @click="toggleExpanded">
       <div class="menu-ico-ham">
@@ -49,7 +49,7 @@
     </router-link>
     <hr>
     <!-- ============================= AI ============================== -->
-    <!-- <router-link to="/Ai" title="" class="menu-item"
+    <router-link to="/Ai" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/Ai')">
       <div class="menu-ico" :class="[$route.path === '/Ai' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -62,7 +62,7 @@
       ]">
         AI
       </div>
-    </router-link> -->
+    </router-link>
     <!-- ============================= HOME ============================== -->
     <router-link to="/" title="" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item',
     ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeTab' : '']" @click="handleItemClick('/')">
@@ -183,6 +183,11 @@ window.addEventListener('resize', checkScreenWidth);
 
 
 <style>
+.eo{
+  position: absolute;
+  z-index: 10;
+  transition: 0.8s;
+}
 .dropdown-menu{
   position: absolute;
   top: 100%;
@@ -196,8 +201,13 @@ window.addEventListener('resize', checkScreenWidth);
   text-align: center;
   padding: 4px 14px 4px 14px;
   cursor: pointer;
-
   color: var(--font-color);
+}
+.menu-ico-ham>svg{
+  fill: var(--font-color-active);
+}
+.menu-ico-ham{
+  user-select: none;
 }
 
 .menu-item:hover>* {
@@ -216,11 +226,11 @@ window.addEventListener('resize', checkScreenWidth);
 }
 
 .expanded {
-  min-width: 13rem;
-  /* animation: slideIn 0.5s ease forwards; */
+  min-width: 11rem;
 }
 
 .no-expanded {
+  min-width: 0; 
   align-items: center;
 }
 
@@ -233,7 +243,7 @@ window.addEventListener('resize', checkScreenWidth);
 .activeTab,
 .activeDescription {
   color: var(--font-color-active) !important;
-  transition: 300ms;
+ 
 }
 
 .menu-darker {
@@ -261,7 +271,7 @@ window.addEventListener('resize', checkScreenWidth);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: 0.2s;
+  
 }
 
 .sidebar>*:first-child {
@@ -275,18 +285,8 @@ window.addEventListener('resize', checkScreenWidth);
   margin-bottom: 1rem;
 }
 
-@keyframes slideIn {
-  0% {
 
-    transform: translateX(-20%);
-  }
+@media screen and (max-width: 600px) {
 
-  100% {
-    transform: translateX(0);
-  }
 }
-
-
-
-@media screen and (max-width: 600px) {}
 </style>

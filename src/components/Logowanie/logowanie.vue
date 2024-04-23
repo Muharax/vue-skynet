@@ -1,5 +1,5 @@
 <template>
-  <div class="LOGOWANIE">
+  <div class="LOGOWANIE loaded">
     <div v-if="authError" class="error-message">{{ authError }}</div>
     <div class="LG">
       <div class="logos">

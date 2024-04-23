@@ -1,9 +1,9 @@
 <template>
-  <div class="unit-converter">
+  <div class="unit-converter loaded">
     <div class="menu">
       <button v-for="converter in converters" :key="converter.name"
         :class="{ active: activeConverter.name === converter.name }" @click="setActiveConverter(converter)">
-        <img :src="converter.iconPath" alt="icon" />
+        <img :src="converter.iconPath" alt="icon" @load="handleIconLoad(converter)" />
         {{ converter.name }}
       </button>
     </div>
@@ -252,15 +252,15 @@ const converters: Converter[] = reactive([
     iconPath: '/vue-skynet/icons/memory.svg',
     units: {
       "bity [b]": 1,
-      "bajty [B]": 0.125, 
-      "kilobajty [KB]": 1 / 8192, 
-      "megabajty [MB]": 1 / (1024 * 8192), 
-      "gigabajty [GB]": 1 / (1024 * 1024 * 8192), 
-      "terabajty [TB]": 1 / (1024 * 1024 * 1024 * 8192), 
-      "petabajty [PB]": 1 / (1024 * 1024 * 1024 * 1024 * 8192), 
-      "eksabajty [EB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 8192), 
-      "zettabajty [ZB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192), 
-      "yottabajty [YB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192), 
+      "bajty [B]": 0.125,
+      "kilobajty [KB]": 1 / 8192,
+      "megabajty [MB]": 1 / (1024 * 8192),
+      "gigabajty [GB]": 1 / (1024 * 1024 * 8192),
+      "terabajty [TB]": 1 / (1024 * 1024 * 1024 * 8192),
+      "petabajty [PB]": 1 / (1024 * 1024 * 1024 * 1024 * 8192),
+      "eksabajty [EB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 8192),
+      "zettabajty [ZB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192),
+      "yottabajty [YB]": 1 / (1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 1024 * 8192),
     },
   }
 ]);
@@ -298,6 +298,13 @@ function setActiveConverter(converter: Converter) {
     values[unit] = '';
   });
 }
+
+
+function handleIconLoad(converter: Converter) {
+  // Obsługa załadowania ikony
+  converter.loaded = true;
+}
+
 </script>
 
 <style scoped>
@@ -307,7 +314,6 @@ button>img {
 
 .menu>button {
   padding: 2px 5px 2px 5px;
-  padding: 0.5rem;
   border: 0px;
   cursor: pointer;
   display: flex;
@@ -349,20 +355,27 @@ button>img {
 
 @media screen and (max-width: 600px) {
   .unit-converter {
-    padding: 5px;
+    padding: 0px;
+    width: 97%;
   }
 
   .input-group>input {
-    width: 90%;
+    /* width: 90%; */
   }
 
   .input-group {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 
   .input-group>label {
-    font-size: 10px;
+    font-size: 14px;
+  }
+
+  .menu>button {
+    padding-top: 2px;
+    padding-bottom: 2px;
   }
 }
 </style>

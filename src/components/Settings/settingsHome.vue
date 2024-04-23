@@ -1,12 +1,5 @@
 <template>
-  <div class="scale09">
-    <div class="fade-in">
-      <h3>Witaj w Ustawieniach systemu SKYNET!</h3>
-      <div>
-        <img src="/src/assets/img/skynet-division.png" alt="SKYNET DIVISION">
-      </div>
-    </div>
-  </div>
+
 </template>
 
 <script setup>
@@ -19,15 +12,6 @@ import { selectedTheme, updateTheme } from './theme/themeLogic.js';
   opacity: 0;
 }
 
-@keyframes fadeInAnimation {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 .theme-switch {
   cursor: pointer;
   color: var(--font-color-active);/* Kolor tekstu dla DARK */
@@ -38,10 +22,4 @@ import { selectedTheme, updateTheme } from './theme/themeLogic.js';
   text-decoration:none;
 }
 
-@media (max-width: 600px) {
-  .scale09 {
-    transform: scale(0.9);
-  }
-
-}
 </style>

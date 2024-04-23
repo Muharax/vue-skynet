@@ -46,5 +46,6 @@ import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
+  margin-left: 60px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="geometry">
+    <div class="geometry loaded">
         <div class="menu">
             <div v-for="(items, category) in categories" :key="category" class="category">
                 <div class="category-title" @click="toggle(category)">{{ category }}</div>
