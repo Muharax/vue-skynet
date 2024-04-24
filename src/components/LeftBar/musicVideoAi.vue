@@ -3,7 +3,7 @@
   <!-- <Loader v-if="isLoading" />
 
   <div v-else> -->
-  <AudioPlayerV1 title="No title" path="/music/0804241306/1.mp3" />
+  <!-- <AudioPlayerV1 title="No title" path="/music/0804241306/1.mp3" />
   <div class="container-music">
     <div>V0.008424 feat. SUNO</div>
     <hr>
@@ -132,7 +132,6 @@
     </div>
 
 
-    <!-- =============================================================== -->
     <div>AI, MS, SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -155,7 +154,7 @@
     </div>
 
 
-    <!-- =============================================================== -->
+
     <div>ROTA feat by SUNO</div>
     <hr style="width: 100%;">
     <div class="fs">
@@ -208,7 +207,7 @@
 
 
 
-    <!-- =============================================================== -->
+
     <div>Pan co waży nasze losy feat. SUNO new</div>
     <hr style="width: 100%;">
 
@@ -241,7 +240,7 @@
 
     </div>
 
-    <!-- =============================================================== -->
+
     <hr style="width: 100%; margin-top: 5px;">
     <div>Pan co waży nasze losy feat. SUNO</div>
     <hr style="width: 100%;">
@@ -355,27 +354,27 @@
       </video>
     </div>
 
-  </div>
+  </div> -->
   <!-- </div> -->
 </template>
 
 <script setup lang="ts">
-import AudioPlayerV1 from '../_Core/AudioPlayerV1.vue';
-import { ref, onMounted } from 'vue';
+// import AudioPlayerV1 from '../_Core/AudioPlayerV1.vue';
+// import { ref, onMounted } from 'vue';
 
-import Loader from '../_Core/Loader.vue';
+// import Loader from '../_Core/Loader.vue';
 
-const isLoading = ref(true);
+// const isLoading = ref(true);
 
 
-onMounted(async () => {
-  // Załóżmy, że tutaj jest wywołanie do API
-  // await new Promise(resolve => setTimeout(resolve, 3000)); // symulacja opóźnienia
-  isLoading.value = false; // Ukryj loader po załadowaniu danych
-});
+// onMounted(async () => {
+//   // Załóżmy, że tutaj jest wywołanie do API
+//   // await new Promise(resolve => setTimeout(resolve, 3000)); // symulacja opóźnienia
+//   isLoading.value = false; // Ukryj loader po załadowaniu danych
+// });
 </script>
 
-<style>
+<!-- <style>
 .dfc {
   display: flex;
   width: 80%;
@@ -449,5 +448,5 @@ audio {
   .dfc {
     flex-direction: column;
   }
-}
+} -->
 </style>

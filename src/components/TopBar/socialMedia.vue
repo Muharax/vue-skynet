@@ -39,9 +39,9 @@
 	{ height: 0 },
 	// Dodaj więcej pasków equalizera w razie potrzeby
   ]);
-  
+
   const sound = new Howl({
-	src: ['/music/music1.mp3'],
+	src: ['/vue-skynet/music/music1.mp3'],
 	autoplay: false,
 	loop: true,
 	volume: 0.5, // Ustawienie głośności na 30%
@@ -49,8 +49,9 @@
 	  animateEqualizer();
 	},
   });
-  
+
   const isPlaying = ref(false);
+
   const volume = ref(getInitialVolume()); // Pobierz początkową głośność z ciasteczka
   
   // Funkcja do pobierania początkowej głośności z ciasteczka
@@ -73,15 +74,28 @@ watchEffect(() => {
   
   const togglePlayPause = () => {
 	// let previousIsPlaying = isPlaying.value;
+	// const storedVolume = localStorage.getItem('playerVolume');
+//   if (storedVolume) {
+//     volume.value = parseFloat(storedVolume);
+//   }
   
 	if (isPlaying.value) {
-	  console.log("Pausuję dźwięk. Aktualna głośność:", volume.value); //
+		console.log("IsPlaying  "+isPlaying.value);
+		
 	  sound.pause();
 
 	} else {
-	  console.log("Odtwarzam dźwięk. Aktualna głośność:", volume.value);
-	  sound.volume(volume.value / 100);
-	  sound.play();
+		// sound.volume(0.5);
+		// Howler.volume(0.5);
+		console.log("IsPlaying  "+isPlaying.value);
+	
+	//   if (storedVolume) {
+    //         const parsedVolume = parseFloat(storedVolume);
+    //         sound.volume(parsedVolume / 100);
+    //         // Zaktualizuj również wartość zmiennej reaktywnej volume
+    //         volume.value = parsedVolume;
+    //     }
+        sound.play();
 	}
   
 	isPlaying.value = !isPlaying.value;
@@ -100,28 +114,70 @@ watchEffect(() => {
 	volume.value = newVolume * 100; // Aktualizuj zmienną reaktywną dla spójności
   };
 
-const animateEqualizer = () => {
-	const analyser = Howler.ctx.createAnalyser();
+
+  	let analyser = null;
+
+	const initAnalyser = () => {
+	analyser = Howler.ctx.createAnalyser();
 	Howler.masterGain.connect(analyser);
 	analyser.connect(Howler.ctx.destination);
 	analyser.fftSize = 256;
-	const bufferLength = analyser.frequencyBinCount;
-	const dataArray = new Uint8Array(bufferLength);
-  
-	const renderFrame = () => {
-	  analyser.getByteFrequencyData(dataArray);
-  
-	  bars.value.forEach((bar, index) => {
-		const dataValue = dataArray[Math.floor(index * (bufferLength / bars.value.length))];
-		const height = (dataValue / 256) * 50; // Normalizacja wartości i dostosowanie do wysokości equalizera
-		bar.height = height;
-	  });
-  
-	  requestAnimationFrame(renderFrame);
 	};
-  
-	renderFrame();
+
+	const animateEqualizer = () => {
+	if (!analyser) {
+		initAnalyser();
+	}
+
+  const bufferLength = analyser.frequencyBinCount;
+  const dataArray = new Uint8Array(bufferLength);
+
+  const renderFrame = () => {
+    analyser.getByteFrequencyData(dataArray);
+
+    bars.value.forEach((bar, index) => {
+      const dataValue = dataArray[Math.floor(index * (bufferLength / bars.value.length))];
+      const height = (dataValue / 256) * 50; // Normalizacja wartości i dostosowanie do wysokości equalizera
+      bar.height = height;
+    });
+
+    requestAnimationFrame(renderFrame);
   };
+
+  renderFrame();
+};
+
+
+
+
+
+// const animateEqualizer = () => {
+// 	const analyser = Howler.ctx.createAnalyser();
+// 	const gainNode = Howler.ctx.createGain();
+
+// 	Howler.masterGain.connect(analyser);
+// 	Howler.masterGain.connect(gainNode);
+
+// 	analyser.connect(Howler.ctx.destination);
+// 	// analyser.connect(Howler.ctx.destination);
+// 	analyser.fftSize = 256;
+// 	const bufferLength = analyser.frequencyBinCount;
+// 	const dataArray = new Uint8Array(bufferLength);
+  
+// 	const renderFrame = () => {
+// 	  analyser.getByteFrequencyData(dataArray);
+  
+// 	  bars.value.forEach((bar, index) => {
+// 		const dataValue = dataArray[Math.floor(index * (bufferLength / bars.value.length))];
+// 		const height = (dataValue / 256) * 50; // Normalizacja wartości i dostosowanie do wysokości equalizera
+// 		bar.height = height;
+// 	  });
+  
+// 	  requestAnimationFrame(renderFrame);
+// 	};
+  
+// 	renderFrame();
+//   };
 
 
 
@@ -141,7 +197,7 @@ const animateEqualizer = () => {
   
 
 
-//RENDERUJ EQUALIZER ZGODNIE Z DOSTĘPNYMI CZĘSTOTLIWOŚCIAMI
+// RENDERUJ EQUALIZER ZGODNIE Z DOSTĘPNYMI CZĘSTOTLIWOŚCIAMI
 // const animateEqualizer = () => {
 //   const analyser = Howler.ctx.createAnalyser();
 //   Howler.masterGain.connect(analyser);

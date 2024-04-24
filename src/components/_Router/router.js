@@ -9,7 +9,7 @@ import Theme from '../Settings/theme/theme.vue';
 import Cookie from '../Settings/cookie/cookie.vue';
 
 import Logout from '../Logowanie/logout.vue';
-import AI from '../LeftBar/musicVideoAi.vue';
+// import AI from '../LeftBar/musicVideoAi.vue';
 import Ads from '../Ads/Ads.vue'
 
 import Geometry from '../Geometry/Geometry.vue';
