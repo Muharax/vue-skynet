@@ -24,7 +24,7 @@
               class="w100" />
           </div>
           <div id="btn-log-in">
-            <div class="wrapper">
+            <div class="wrapperBtn">
               <div class="box">
                 <button type="submit" class="log-in" id="sub">Sign In</button>
               </div>
@@ -48,6 +48,67 @@ const handleSubmit = () => {
 };
 </script>
 <style scoped>
+
+#sub {
+  /* Domyślny wygląd przycisku */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  
+}
+
+#sub.log-in {
+  /* Kolor tła */
+  background-color: var(--box-shadow); /* Przykładowy kolor */
+  color: var(--font-color);
+}
+
+#sub.log-in:hover {
+  /* Zmiana koloru tła po najechaniu myszką */
+  background-color: #53d693; /* Inny kolor */
+}
+
+#sub.log-in:active {
+  /* Zmiana koloru tła po kliknięciu */
+  background-color: #359e6b; /* Jeszcze inny kolor */
+}
+
+/* Animacja dla przycisku */
+@keyframes buttonPulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#sub.log-in:hover {
+  animation: buttonPulse 0.5s infinite alternate;
+}
+
+
+
+
+.box{
+  text-align: center;
+}
+.wrapperBtn{
+  margin-top: 0.4rem;
+}
+
+
+
+
+
+
 .icon {
   fill: var(--primary);
   /* Ustaw wypełnienie ścieżki na aktualny kolor */
@@ -117,11 +178,26 @@ const handleSubmit = () => {
 }
 .name,
 .pass {
-  align-items: center;
+  margin-top: 2px;
+  display: flex;
 }
 .name input,
 .pass input {
   margin-left: 4px;
+   /* Ustawienie koloru tła */
+   background-color: var(--color-background); /* Przykładowy kolor */
+  
+  /* Dodanie obramowania */
+  border: 1px solid #ccc; /* Kolor obramowania */
+  
+  /* Dodanie zaokrąglonych krawędzi */
+  border-radius: 5px;
+  
+  /* Dodanie wewnętrznego marginesu */
+  padding: 8px 12px;
+  
+  /* Ustawienie koloru tekstu */
+  color: var(--font-color); /* Kolor tekstu */
 }
 .GPSROP {
   font-family: monospace;

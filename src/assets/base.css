@@ -19,9 +19,9 @@ body {
   color: var(--font-color);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
+  /* line-height: 1.6; */
   font-family: monospace;
-  font-size: 13px;
+  font-size: 12px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,7 +1,7 @@
 <template>
-  <div class="TopBar">
+  <header class="TopBar">
     <TopBar />
-  </div>
+  </header>
   <div class="line">
     <LeftBarMain />
     <div class="router">
@@ -27,12 +27,8 @@ import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
 .TopBar {
   background-color: var(--color-background);
   box-shadow: 0px 0px 2px 1px var(--box-shadow);
-  padding: 0px 7px 0px 7px;
-  justify-content: space-between;
-  width: 100%;
   height: 75px;
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
   z-index: 1;
 }
@@ -46,6 +42,13 @@ import LeftBarMain from './components/LeftBar/LeftBar-Main.vue';
   width: 100%;
   overflow: hidden;
   overflow-y: auto;
+  margin-left: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .router {
   margin-left: 60px;
 }
+}
+
 </style>

@@ -1,26 +1,21 @@
 <template>
-    <router-link to="/">
-        <div class="logo-container">
-            <img id="logo-img" src="./img/fav4.png" />
-        </div>
-    </router-link>
+    <div class="logo-container">
+        <router-link to="/">
+            <div class="logo-image-container ct">
+                <img id="logo-img" src="./img/fav4.png" />
+            </div>
+        </router-link>
+    </div>
 </template>
 <style scoped>
-.logo-container {
-    width: 100px;
-    display: flex;
-    margin-left: 10px;
+#logo-img {
+  /* widows: 50px; */
+  /* height: 50px; */
+  /* animation: rotate 5s linear infinite; */
 }
 
-.logo-container img {
-    max-width: 100%;
-    height: auto;
-}
-.logo-img{
-    
-}
 
-@media (max-width: 600px) {
 
-}
+
+@media (max-width: 600px) {}
 </style>

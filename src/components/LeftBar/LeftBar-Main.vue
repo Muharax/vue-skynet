@@ -49,7 +49,7 @@
     </router-link>
     <hr>
     <!-- ============================= AI ============================== -->
-    <router-link to="/Ai" title="" class="menu-item"
+    <!-- <router-link to="/Ai" title="" class="menu-item"
       :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/Ai')">
       <div class="menu-ico" :class="[$route.path === '/Ai' ? 'menu-ico-active' : '']">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
@@ -62,7 +62,7 @@
       ]">
         AI
       </div>
-    </router-link>
+    </router-link> -->
     <!-- ============================= HOME ============================== -->
     <router-link to="/" title="" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item',
     ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeTab' : '']" @click="handleItemClick('/')">
@@ -182,11 +182,11 @@ window.addEventListener('resize', checkScreenWidth);
 </script>
 
 
-<style>
+<style scoped>
 .eo{
-  position: absolute;
-  z-index: 10;
-  transition: 0.8s;
+  position: relative;
+  z-index: 9999;
+  /* transition: 0.8s; */
 }
 .dropdown-menu{
   position: absolute;
@@ -198,6 +198,7 @@ window.addEventListener('resize', checkScreenWidth);
 .menu-item {
   display: flex;
   flex-direction: row;
+  align-items: center;
   text-align: center;
   padding: 4px 14px 4px 14px;
   cursor: pointer;
@@ -226,7 +227,7 @@ window.addEventListener('resize', checkScreenWidth);
 }
 
 .expanded {
-  min-width: 11rem;
+  min-width: 14rem;
 }
 
 .no-expanded {
@@ -287,6 +288,8 @@ window.addEventListener('resize', checkScreenWidth);
 
 
 @media screen and (max-width: 600px) {
-
+  .eo{
+  position: absolute;
+}
 }
 </style>

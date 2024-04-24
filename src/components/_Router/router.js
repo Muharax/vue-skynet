@@ -22,7 +22,7 @@ const router = createRouter({
   routes: [
     { path: '/', component: Home },
     { path: '/login', component: Logowanie },
-    { path: '/Ai', component: AI },
+    // { path: '/Ai', component: AI },
     { path: '/vue-skynet/', component: Home },
     { path: '/Ads', component: Ads },
     { path: '/Unit-Converter', component: UnitConverter },

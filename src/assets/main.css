@@ -1,31 +1,52 @@
 @import './base.css';
 
-#app {
-
+.ct {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
+
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg); /* Początkowy kąt obrotu */
+  }
+  100% {
+    transform: rotate(360deg); /* Końcowy kąt obrotu */
+  }
+}
+
+
 
 a {
   text-decoration: none;
 }
 
-hr{
-	width: 100%;
+hr {
+  width: 100%;
   /* border: 1px solid var(--font-color-active); */
 }
+
 /* Dostosowanie wyglądu paska przewijania dla przeglądarek opartych na silniku Chromium */
 ::-webkit-scrollbar {
-  width: 8px; /* Szerokość paska przewijania */
+  width: 8px;
+  /* Szerokość paska przewijania */
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-background); /* Kolor tła ścieżki przewijania */
+  background: var(--color-background);
+  /* Kolor tła ścieżki przewijania */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary); /* Kolor samego paska przewijania */
- /* border-radius: 0px; /* Zaokrąglenie rogów paska przewijania */
+  background: var(--primary);
+  /* Kolor samego paska przewijania */
+  /* border-radius: 0px; /* Zaokrąglenie rogów paska przewijania */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Kolor paska przewijania po najechaniu myszką */
+  background: #555;
+  /* Kolor paska przewijania po najechaniu myszką */
 }
