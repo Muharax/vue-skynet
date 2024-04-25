@@ -6,6 +6,8 @@
     --font-color-active: #c41b23;
     --font-color-hover: #d04242;
 
+    --primary-transparent: rgba(52, 83, 102, 0.9);
+
     --primary-color:#000000;
 
   }
@@ -17,6 +19,8 @@
     --box-shadow:var(--primary);
     --font-color-active: #25cece;
     --font-color-hover: #43b2c1;
+
+    --primary-transparent: rgba(37, 98, 115, 0.9);
     
     --primary-color:#ffffff;
   }

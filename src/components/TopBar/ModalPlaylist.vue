@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="playlist">
     <div v-for="(file, index) in audioFiles" :key="index" class="audio-item">
       <button style="cursor: pointer;" @click="playAudio(file)">Play</button>
@@ -18,7 +18,7 @@ interface AudioFile {
 
 const emit = defineEmits(["audioSelected"]);
 
-// const audioFiles: AudioFile[] = [
+const audioFiles: AudioFile[] = [
 //   { name: 'audio1.mp3', url: '/vue-skynet/music/1.mp3' },
 //   { name: 'audio2.mp3', url: '/vue-skynet/music/2.mp3' },
 //   { name: 'audio3.mp3', url: '/vue-skynet/music/3.mp3' },
@@ -60,4 +60,4 @@ onMounted(() => {
   margin-left: 5px;
   margin-top: 3px;
 }
-</style>
+</style> -->

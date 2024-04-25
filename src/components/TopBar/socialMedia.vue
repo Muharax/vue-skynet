@@ -1,7 +1,8 @@
 <template>
-	<showModal @audioSelected="handleAudioSelected" :audioFiles="audioFiles"/>
+	
   
 	<div class="player-container">
+		<showModal @audioSelected="handleAudioSelected" :audioFiles="audioFiles"/>
 	  <div class="player">
 		<div class="equalizer">
 		  <div
