@@ -1,5 +1,5 @@
 <template>
-	<!-- <showModal /> -->
+	<showModal @audioSelected="handleAudioSelected" :audioFiles="audioFiles"/>
   
 	<div class="player-container">
 	  <div class="player">
@@ -20,10 +20,138 @@
   </template>
   
   <script setup lang="ts">
-  import { ref, watchEffect } from 'vue';
+  import { ref, watchEffect, onMounted } from 'vue';
   import { Howl, Howler } from 'howler';
+  import showModal from './showModal.vue';
+
+  interface AudioFile {
+  	name: string;
+  	url: string;
+  }
+
+const isPlaying = ref(false);
+const volume = ref(getInitialVolume()); 
+const audioFiles = ref<AudioFile[]>([]);
+let sound: Howl | null = null;
+
+// Zmienna przechowująca aktualny indeks odtwarzanego pliku
+let currentIndex = 0;
+
+const playNextAudioFile = () => {
+  const currentFile = audioFiles.value[currentIndex];
+  console.log("CR "+audioFiles.value[currentIndex]);
+  handleAudioFile(currentFile);
+  currentIndex = (currentIndex + 1) % audioFiles.value.length; // Ustawiamy currentIndex na resztę z dzielenia przez długość listy, aby zapętlić odtwarzanie
   
-  const bars = ref([
+};
+
+// Funkcja obsługi odtwarzania kolejnych plików z listy
+// const playNextAudioFile = () => {
+//   // Pobierz aktualny plik audio na podstawie indeksu
+//   const currentFile = audioFiles.value[currentIndex];
+
+//   // Obsłuż odtwarzanie pliku
+//   handleAudioFile(currentFile);
+
+//   // Zwiększ indeks o 1, aby przejść do następnego pliku
+//   currentIndex++;
+
+//   // Sprawdź, czy osiągnięto koniec listy
+//   if (currentIndex >= audioFiles.value.length) {
+// 	console.log("currentIndex"+currentIndex);
+// 	console.log("audioFiles.value.length"+audioFiles.value.length);
+//     console.log("Doszliśmy do końca listy. Wrócono do początku.");
+//     // Ustaw currentIndex na 0, aby zacząć od początku listy
+//     currentIndex = 0;
+//   }
+// };
+
+
+// Obsługa otrzymania listy plików audio
+// Obsługa otrzymania listy plików audio
+const handleAudioSelected = (files: AudioFile[] | AudioFile) => {
+  if (Array.isArray(files)) {
+    audioFiles.value = files;
+  } else {
+    audioFiles.value = [files];
+  }
+  currentIndex = 0; 
+  playNextAudioFile();
+};
+
+// Funkcja obsługi odtwarzania pojedynczego pliku audio
+const handleAudioFile = (file: AudioFile) => {
+  // Wyświetl informacje o pliku audio
+  console.log("Odebrano socialMedia:", file);
+  if (sound && sound.playing()) {
+    sound.stop();
+  }
+  // Jeśli istnieje poprzedni dźwięk, rozładuj go
+  if (sound) {
+    sound.unload();
+  }
+
+  // Inicjalizuj nowy dźwięk
+  sound = new Howl({
+    src: [file.url],
+    autoplay: true,
+    loop: true,
+    volume: volume.value / 100,
+    onplay: () => {
+      animateEqualizer();
+      isPlaying.value = true;
+    },
+    onpause: () => {
+      isPlaying.value = false;
+    },
+    onend: () => {
+      // Po zakończeniu odtwarzania bieżącego pliku, przejdź do następnego
+      playNextAudioFile();
+    },
+  });
+};
+
+
+
+
+const togglePlayPause = () => {
+  if (sound && sound.playing()) {
+    sound.pause(); // Pauzuj dźwięk, jeśli jest odtwarzany
+  } else if (sound) {
+    sound.play(); // Wznów odtwarzanie, jeśli jest wstrzymany
+  }
+};
+ 
+
+const bars = ref([
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
+	{ height: 0 },
 	{ height: 0 },
 	{ height: 0 },
 	{ height: 0 },
@@ -40,29 +168,15 @@
 	// Dodaj więcej pasków equalizera w razie potrzeby
   ]);
 
-  const sound = new Howl({
-	src: ['/vue-skynet/music/music1.mp3'],
-	autoplay: false,
-	loop: true,
-	volume: 0.5, // Ustawienie głośności na 30%
-	onplay: () => {
-	  animateEqualizer();
-	},
-  });
 
-  const isPlaying = ref(false);
 
-  const volume = ref(getInitialVolume()); // Pobierz początkową głośność z ciasteczka
+  // Pobierz początkową głośność z ciasteczka
   
   // Funkcja do pobierania początkowej głośności z ciasteczka
   function getInitialVolume() {
-	const storedVolume = localStorage.getItem('playerVolume');
-	if (storedVolume) {
-	  return parseFloat(storedVolume);
-	} else {
-	  return 30; // Domyślna głośność
-	}
-  }
+  const storedVolume = localStorage.getItem('playerVolume');
+  return storedVolume ? parseFloat(storedVolume) : 20; // Domyślna głośność 50
+}
   
  // Obserwuj zmiany głośności i zapisuj je do ciasteczka
 watchEffect(() => {
@@ -72,45 +186,14 @@ watchEffect(() => {
 });
   
   
-  const togglePlayPause = () => {
-	// let previousIsPlaying = isPlaying.value;
-	// const storedVolume = localStorage.getItem('playerVolume');
-//   if (storedVolume) {
-//     volume.value = parseFloat(storedVolume);
-//   }
-  
-	if (isPlaying.value) {
-		console.log("IsPlaying  "+isPlaying.value);
-		
-	  sound.pause();
 
-	} else {
-		// sound.volume(0.5);
-		// Howler.volume(0.5);
-		console.log("IsPlaying  "+isPlaying.value);
-	
-	//   if (storedVolume) {
-    //         const parsedVolume = parseFloat(storedVolume);
-    //         sound.volume(parsedVolume / 100);
-    //         // Zaktualizuj również wartość zmiennej reaktywnej volume
-    //         volume.value = parsedVolume;
-    //     }
-        sound.play();
-	}
-  
-	isPlaying.value = !isPlaying.value;
-  
-	// Sprawdź, czy stan odtwarzania faktycznie się zmienił
-	// if (isPlaying.value !== previousIsPlaying) {
-	//   sound.volume(volume.value / 100);
-	// }
-  };
   
   const changeVolume = (event) => {
 	// Aktualizuj głośność bezpośrednio na podstawie wprowadzonych danych użytkownika
 	const newVolume = parseFloat(event.target.value) / 100;
-	const limitedVolume = Math.min(newVolume, 0.6); // 
-	sound.volume(limitedVolume);
+	// const limitedVolume = Math.min(newVolume, 0.6);
+	// sound.volume(limitedVolume);
+	sound.volume(newVolume);
 	volume.value = newVolume * 100; // Aktualizuj zmienną reaktywną dla spójności
   };
 
@@ -121,7 +204,7 @@ watchEffect(() => {
 	analyser = Howler.ctx.createAnalyser();
 	Howler.masterGain.connect(analyser);
 	analyser.connect(Howler.ctx.destination);
-	analyser.fftSize = 256;
+	analyser.fftSize = 64;
 	};
 
 	const animateEqualizer = () => {
@@ -266,9 +349,9 @@ watchEffect(() => {
   
   .player {
 	display: flex;
-	background-color: #1e1e1e;
-	border: 2px solid #333;
-	border-radius: 10px;
+	/* background-color: #1e1e1e; */
+	/* border: 2px solid #333; */
+	/* border-radius: 10px; */
 	padding: 10px; /* Zmniejszone wcięcie odtwarzacza */
   }
   
@@ -281,11 +364,21 @@ watchEffect(() => {
   
   .bar {
 	width: 8px; /* Zmniejszona szerokość paska equalizera */
-	background-color: #007bff;
+	/* background-color: #007bff; */
+
+	/* background: linear-gradient(to right, #ff0000, #000000); */
+	/* background: linear-gradient(to bottom, #ff0000, #000000); */
+	/* background: linear-gradient(to bottom right, #ff0000, #000000); */
+	/* background: linear-gradient(to left, #ff0000, #000000); */
+	background: linear-gradient(to bottom right, #00ffc3, #000000);
+
 	margin: 0 1px; /* Zmniejszone marginesy paska equalizera */
   }
   
   .controls {
+	position: absolute;
+    left: 127px;
+	top: 0px;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -293,9 +386,10 @@ watchEffect(() => {
   }
   
   .play-pause {
+	width: 80px;
 	background-color: transparent;
 	border: none;
-	color: #fff;
+	color: var(--font-color);
 	font-size: 16px; /* Zmniejszona wielkość czcionki przycisku play/pause */
 	cursor: pointer;
   }
@@ -316,6 +410,15 @@ watchEffect(() => {
 	background-color: #007bff;
 	border-radius: 50%;
 	cursor: pointer;
+  }
+
+
+  @media (max-width: 600px) {
+  .player-container {
+	transform: scale(0.9);
+    position: relative;
+    left: -11px;
+  }
   }
   </style>
   
