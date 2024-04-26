@@ -36,7 +36,7 @@ const props = defineProps({
 .image-container {
   position: absolute;
   cursor: pointer;
-  z-index: 10;
+  z-index: 0;
   filter: grayscale(10%);
   transition: 300ms;
   text-align: center;

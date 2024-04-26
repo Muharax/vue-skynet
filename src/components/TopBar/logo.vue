@@ -17,5 +17,9 @@
 
 
 
-@media (max-width: 600px) {}
+@media (max-width: 600px) {
+    .logo-container{
+        display: none;
+    }
+}
 </style>

@@ -48,21 +48,6 @@
       </div>
     </router-link>
     <hr>
-    <!-- ============================= AI ============================== -->
-    <!-- <router-link to="/Ai" title="" class="menu-item"
-      :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item']" @click="handleItemClick('/Ai')">
-      <div class="menu-ico" :class="[$route.path === '/Ai' ? 'menu-ico-active' : '']">
-        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
-          <path
-            d="M80-120v-80h800v80H80Zm680-160v-560h60v560h-60Zm-600 0 210-560h100l210 560h-96l-50-144H308l-52 144h-96Zm176-224h168l-82-232h-4l-82 232Z" />
-        </svg>
-      </div>
-      <div class="description" :class="[expanded ? 'show-description' : '',
-      $route.path.startsWith('/Ai') ? 'activeDescription' : ''
-      ]">
-        AI
-      </div>
-    </router-link> -->
     <!-- ============================= HOME ============================== -->
     <router-link to="/" title="" class="menu-item" :class="[expanded ? 'expanded-menu-item' : 'no-expanded-menu-item',
     ($route.path === '/' || $route.path.startsWith('/vue-skynet/')) ? 'activeTab' : '']" @click="handleItemClick('/')">
@@ -185,7 +170,7 @@ window.addEventListener('resize', checkScreenWidth);
 <style scoped>
 .eo{
   position: relative;
-  z-index: 9999;
+  /* z-index: 9999; */
   /* transition: 0.8s; */
 }
 .dropdown-menu{

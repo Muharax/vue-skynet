@@ -62,40 +62,21 @@ const handleSubmit = () => {
 }
 
 #sub.log-in {
-  /* Kolor tła */
-  background-color: var(--box-shadow); /* Przykładowy kolor */
+  background-color: var(--box-shadow);
   color: var(--font-color);
 }
 
 #sub.log-in:hover {
-  /* Zmiana koloru tła po najechaniu myszką */
-  background-color: #53d693; /* Inny kolor */
+  background-color: #45a049;
 }
 
 #sub.log-in:active {
-  /* Zmiana koloru tła po kliknięciu */
-  background-color: #359e6b; /* Jeszcze inny kolor */
-}
-
-/* Animacja dla przycisku */
-@keyframes buttonPulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+  background-color: #359e6b;
 }
 
 #sub.log-in:hover {
   animation: buttonPulse 0.5s infinite alternate;
 }
-
-
-
 
 .box{
   text-align: center;
@@ -111,7 +92,6 @@ const handleSubmit = () => {
 
 .icon {
   fill: var(--primary);
-  /* Ustaw wypełnienie ścieżki na aktualny kolor */
 }
 .LOGOWANIE {
   width: 290px;
@@ -121,7 +101,6 @@ const handleSubmit = () => {
   background-color: var(--search);
   border-radius: 5px;
   justify-content: center;
-  /* position: fixed; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -184,20 +163,11 @@ const handleSubmit = () => {
 .name input,
 .pass input {
   margin-left: 4px;
-   /* Ustawienie koloru tła */
-   background-color: var(--color-background); /* Przykładowy kolor */
-  
-  /* Dodanie obramowania */
-  border: 1px solid #ccc; /* Kolor obramowania */
-  
-  /* Dodanie zaokrąglonych krawędzi */
+  background-color: var(--color-background);
+  border: 1px solid #ccc;
   border-radius: 5px;
-  
-  /* Dodanie wewnętrznego marginesu */
   padding: 8px 12px;
-  
-  /* Ustawienie koloru tekstu */
-  color: var(--font-color); /* Kolor tekstu */
+  color: var(--font-color);
 }
 .GPSROP {
   font-family: monospace;

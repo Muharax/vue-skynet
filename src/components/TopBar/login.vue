@@ -25,5 +25,11 @@
 .icon path {
   fill: currentColor;
   /* Ustaw wypełnienie ścieżki na aktualny kolor */
-}
+}  
+
+@media (max-width: 600px) {
+  .menu-router{
+    display: none;
+  }
+  }
 </style>

@@ -95,7 +95,7 @@ const updateAdditionalCookie = () => {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid #14b7bf;
   width: 80%;
 }
 
