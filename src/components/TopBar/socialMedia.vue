@@ -35,7 +35,6 @@ const playNextAudioFile = (isSingleFile: boolean = false) => {
   let nextIndex;
 
   if (isSingleFile) {
-    // console.log("Actual file: ", audioFiles.value[currentIndex].name);
     handleAudioFile(audioFiles.value[currentIndex]);
     isSingleFile = false;
     return;
@@ -43,54 +42,14 @@ const playNextAudioFile = (isSingleFile: boolean = false) => {
 
   if (!isComponentLoaded.value) {
     nextIndex = currentIndex % audioFiles.value.length;
-    // console.log("YY: " + audioFiles.value.length);
-    // console.log("uuu: " + isPlaying.value);
   } else {
     nextIndex = (currentIndex + 1) % audioFiles.value.length;
     currentIndex = nextIndex;
-    // console.log("currentIndex: "+currentIndex);
-    // console.log("audioFiles.value.length: "+audioFiles.value.length);
-    // audioFiles.value[1].autoPlay = true;
-    // audioFiles.value[currentIndex].autoPlay = false;
-    // audioFiles.value[currentIndex + 1].autoPlay = true;
-
     if (nextIndex === 0) {
-      // audioFiles.value[0].autoPlay = true;
       console.log("Restarting from the beginning");
     }
   }
-  // console.log("nextIndexXX: " + nextIndex);
   const nextFile = audioFiles.value[nextIndex];
-  // console.log("Next file: ", nextFile.name);
- 
-  
-  // if (currentIndex + 1 < audioFiles.value.length) {
-  //   audioFiles.value[currentIndex + 1].autoPlay = true;
-  // } else {
-  //   audioFiles.value[0].autoPlay = true;
-  // }
-
-  // if(!isComponentLoaded.value){
-  //   console.log('7777');
-  //   audioFiles.value[0].autoPlay = true;
-  // }
-
-  // if(isComponentLoaded.value){
-  //   audioFiles.value[0].autoPlay = true;
-  // }
-
-
-  // if (isComponentLoaded.value) {
-  //  audioFiles.value[0].autoPlay = true;
-  //       console.log('9999')
-  // if (currentIndex + 1 < audioFiles.value.length) {
-  //   audioFiles.value[currentIndex + 1].autoPlay = true;
-  // } else {
-  //   audioFiles.value[0].autoPlay = true;
-  // }
-  //     }
-
-
   handleAudioFile(nextFile);
 };
 
@@ -102,6 +61,7 @@ const handleAudioSelected = (files: AudioFile[] | AudioFile, autoPlay: boolean =
     audioFiles.value = files;
     currentIndex = 0;
   } else {
+    sound.stop();
     const index = audioFiles.value.findIndex(file => file === files);
     // console.log("Index: " + index);
     // console.log("audioFiles.value: " + files.name);
@@ -110,8 +70,6 @@ const handleAudioSelected = (files: AudioFile[] | AudioFile, autoPlay: boolean =
         isComponentLoaded.value = true;
       }
       currentIndex = index;
-      // console.log("BB: " + currentIndex);
-      // console.log("currentIndex: " + currentIndex);
       playNextAudioFile(true);
       return;
     } else {
@@ -157,11 +115,9 @@ const handleAudioFile = (file: AudioFile) => {
 
 
 const togglePlayPause = () => {
-  // console.log(isComponentLoaded.value);
   if (!isComponentLoaded.value) {
     isComponentLoaded.value = true;
   }
-  // console.log(isComponentLoaded.value);
   if (sound && sound.playing()) {
     sound.pause();
   } else if (sound) {
@@ -199,6 +155,9 @@ let barSpacing = Math.floor(barWidth / 10);
 let gradientStartColor = '#00ffc3';
 let gradientStopColor = '#0983c0';
 
+const FPS = 60;
+const interval = 1000 / FPS;
+
 const initAnalyser = () => {
   analyser = Howler.ctx.createAnalyser();
   Howler.masterGain.connect(analyser);
@@ -211,7 +170,9 @@ const initCanvas = () => {
   ctx = canvas.getContext('2d');
   canvas.width = canvasWidth;
   canvas.height = canvasHeight;
+  barWidth = Math.floor((canvas.width - (numBars - 1) * barSpacing) / numBars);
 };
+
 
 const animateEqualizer = () => {
   if (!analyser) {
@@ -226,20 +187,28 @@ const animateEqualizer = () => {
   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
   gradient.addColorStop(0, gradientStartColor);
   gradient.addColorStop(1, gradientStopColor);
+  
   const renderFrame = () => {
     analyser.getByteFrequencyData(dataArray);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = gradient;
+    const barWidthWithSpacing = barWidth + barSpacing; 
     dataArray.forEach((dataValue, index) => {
-      const x = index * (barWidth + barSpacing);
+      const x = index * barWidthWithSpacing;
       const height = (dataValue / 256) * canvas.height;
       const y = canvas.height - height;
-      ctx.fillStyle = gradient;
       ctx.fillRect(x, y, barWidth, height);
     });
-    requestAnimationFrame(renderFrame);
+    setTimeout(() => {
+      requestAnimationFrame(renderFrame);
+    }, interval);
   };
   renderFrame();
 };
+
+
+
+
 </script>
 <style scoped>
 .song-title {

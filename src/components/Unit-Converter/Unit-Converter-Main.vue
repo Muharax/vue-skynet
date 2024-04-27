@@ -331,7 +331,7 @@ button>img {
   background-color: var(--primary);
   color: var(--font-color);
   transition: 400ms;
-  z-index: 998;
+  z-index: 0;
 }
 
 .unit-converter {

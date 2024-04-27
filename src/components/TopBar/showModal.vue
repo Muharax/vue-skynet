@@ -4,33 +4,13 @@
     <div :class="{ 'modal': true, 'show': isOpen }">
       <div class="modal-content">
         <button class="ct close-btn-playlist" @click="closeModal">X</button>
-
-
         <div class="content">
-
-          <!-- <label>AutoPlay</label>
-          <label class="switch">
-                <input type="checkbox" v-model="file.autoplay">
-                <span class="slider round"></span>
-          </label> -->
-
           <div class="playlist">
-            <span>Autoplay: {{ autoPlayIndex }}</span>
+            <span>Autoplay: {{ autoPlayIndex + 1 }}</span>
             <div v-for="(file, index) in audioFiles" :key="index" class="audio-item">
-              <!-- <button style="cursor: pointer;" @click="playAudio(file)">Play</button> -->
-
-              <!-- <button v-if="!file.autoPlay" style="cursor: pointer;" @click="playAudio(file)">Play</button>
-
-              <button v-if="file.autoPlay" style="cursor: pointer;" @click="playAudio(file)">Pause</button> -->
-
-              <button v-if="autoPlayIndex !== index" style="cursor: pointer;" @click="playAudio(file)">Play</button>
-
-              <button v-else style="cursor: pointer;" @click="playAudio(file)">Lecimy</button>
-
-
-
+              <button v-if="autoPlayIndex !== index" style="cursor: pointer;" @click="playAudio(file)" class="mega-button">Play</button>
+              <button v-else style="cursor: pointer;" @click="playAudio(file)" class="btn-pulse">Lecimy</button>
               <p>{{ file.name }}</p>
-
             </div>
           </div>
         </div>
@@ -38,18 +18,13 @@
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import { ref, defineEmits, onMounted, computed } from 'vue';
-
 interface AudioFile {
   name: string;
   url: string;
   autoPlay: boolean;
 }
-
-
-
 const audioFiles = ref<AudioFile[]>([
   // { name: 'Nie płakać psia mać V1', url: '/vue-skynet/music/33.mp3', autoPlay: false },
   { name: 'Nie płakać psia mać V5', url: '/vue-skynet/music/music1.mp3', autoPlay: false },
@@ -59,7 +34,6 @@ const audioFiles = ref<AudioFile[]>([
   { name: 'Nanashi Zer YouTube Nanashi Zero', url: '/vue-skynet/music/44Nanashi_ZerYouTubeNanashi_Zero.mp3', autoPlay: false },
   // { name: 'Nie płakać psia mać V0', url: '/vue-skynet/music/33.mp3' },
 ]);
-
 // const audioFiles = ref<AudioFile[]>([
 //   { name: 'Nie płakać psia mać V1', url: '/vue-skynet/music/33.mp3', autoPlay: false },
 //   { name: 'Nie płakać psia mać V4', url: '/vue-skynet/music/33.mp3', autoPlay: false },
@@ -69,34 +43,24 @@ const audioFiles = ref<AudioFile[]>([
 //   { name: 'Jeszcze Polska nie zgineła', url: '/vue-skynet/music/33.mp3', autoPlay: false },
 //   { name: 'Nanashi Zer YouTube Nanashi Zero', url: '/vue-skynet/music/33.mp3', autoPlay: false },
 // ]);
-
 const autoPlayIndex = computed(() => {
   const index = audioFiles.value.findIndex(file => file.autoPlay);
   console.log("I: " + index)
   return index !== -1 ? index : null;
 });
-
-// const isPlaying = (fileId) => {
-//   return currentPlayingFile.value?.id === fileId;
-// };
-
 const emit = defineEmits(["audioSelected"]);
 const isOpen = ref(false);
-
 const openModal = () => {
   isOpen.value = true;
 };
-
 const closeModal = () => {
   isOpen.value = false;
 };
-
 const playAudio = (file: AudioFile) => {
   console.log("EMITUJ showModal" + JSON.stringify(file));
   emit('audioSelected', file);
   setAutoPlayIndex(file);
 };
-
 const setAutoPlayIndex = (file: AudioFile) => {
   const index = audioFiles.value.findIndex(f => f.name === file.name);
   if (index !== -1) {
@@ -109,17 +73,11 @@ const setAutoPlayIndex = (file: AudioFile) => {
     });
   }
 };
-
-
 onMounted(() => {
   emit('audioSelected', audioFiles.value);
   console.log(audioFiles.value);
 });
-
 </script>
-
-
-
 <style scoped>
 .modal {
   position: fixed;
@@ -130,11 +88,9 @@ onMounted(() => {
   display: none;
   transform: translateX(-50%);
 }
-
 .show {
   display: block;
 }
-
 .modal-content {
   background: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(15, 128, 136));
   padding: 20px;
@@ -143,19 +99,15 @@ onMounted(() => {
   overflow-y: auto;
   position: relative;
 }
-
-
 .content {
   padding: 10px;
 }
-
 .close {
   color: var(--primary);
   float: right;
   font-size: 16px;
   font-weight: bold;
 }
-
 .close-btn-playlist {
   position: absolute;
   background: none;
@@ -168,50 +120,39 @@ onMounted(() => {
   height: 20px;
   color: rgb(221, 153, 17);
 }
-
 .close-btn-playlist:hover {
   color: rgb(255, 0, 0);
 }
-
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
   cursor: pointer;
 }
-
 .audio-item {
   display: flex;
   align-items: center;
 }
-
 .audio-item>* {
   margin-left: 5px;
   margin-top: 3px;
 }
-
-
 .mega-button:hover {
   color: orange;
   /* background-color: #45a049; */
   animation: buttonPulse 0.5s infinite alternate;
 }
-
 @keyframes pulse {
   0% {
     transform: scale(1);
   }
-
   50% {
     transform: scale(1.05);
   }
-
   100% {
     transform: scale(1);
   }
 }
-
-
 @media screen and (max-width: 600px) {
   .modal {
     width: 100%;

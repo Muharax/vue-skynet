@@ -22,7 +22,15 @@
   animation: buttonPulse 0.5s infinite alternate;
 }
 
-
+.btn-pulse{
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: rgb(0, 255, 247);
+  animation: buttonPulse 0.5s infinite alternate;
+}
 
 @keyframes rotate {
   0% {
