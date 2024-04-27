@@ -15,8 +15,20 @@
           </label> -->
 
           <div class="playlist">
+            <span>Autoplay: {{ autoPlayIndex }}</span>
             <div v-for="(file, index) in audioFiles" :key="index" class="audio-item">
-              <button style="cursor: pointer;" @click="playAudio(file)">Play</button>
+              <!-- <button style="cursor: pointer;" @click="playAudio(file)">Play</button> -->
+
+              <!-- <button v-if="!file.autoPlay" style="cursor: pointer;" @click="playAudio(file)">Play</button>
+
+              <button v-if="file.autoPlay" style="cursor: pointer;" @click="playAudio(file)">Pause</button> -->
+
+              <button v-if="autoPlayIndex !== index" style="cursor: pointer;" @click="playAudio(file)">Play</button>
+
+              <button v-else style="cursor: pointer;" @click="playAudio(file)">Lecimy</button>
+
+
+
               <p>{{ file.name }}</p>
 
             </div>
@@ -28,33 +40,45 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits, onMounted } from 'vue';
+import { ref, defineEmits, onMounted, computed } from 'vue';
 
 interface AudioFile {
   name: string;
   url: string;
-  // autoplay: boolean;
+  autoPlay: boolean;
 }
 
+
+
 const audioFiles = ref<AudioFile[]>([
-  { name: 'Nie płakać psia mać V1', url: '/vue-skynet/music/3.mp3' },
-  { name: 'Nie płakać psia mać V4', url: '/vue-skynet/music/2.mp3' },
-  { name: 'Nie płakać psia mać V5', url: '/vue-skynet/music/music1.mp3' },
-  { name: 'W labiryncie kodu V1 (new)', url: '/vue-skynet/music/11wLabiryncie.mp3' },
-  { name: 'W labiryncie kodu V2 (new)', url: '/vue-skynet/music/22wLabiryncie.mp3' },
-  { name: 'Jeszcze Polska nie zgineła', url: '/vue-skynet/music/33jeszczePolska.mp3' },
-  { name: 'Nanashi Zer YouTube Nanashi Zero', url: '/vue-skynet/music/44Nanashi_ZerYouTubeNanashi_Zero.mp3' },
+  // { name: 'Nie płakać psia mać V1', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+  { name: 'Nie płakać psia mać V5', url: '/vue-skynet/music/music1.mp3', autoPlay: false },
+  { name: 'W labiryncie kodu V1 (new)', url: '/vue-skynet/music/11wLabiryncie.mp3', autoPlay: false },
+  { name: 'W labiryncie kodu V2 (new)', url: '/vue-skynet/music/22wLabiryncie.mp3', autoPlay: false },
+  { name: 'Jeszcze Polska nie zgineła', url: '/vue-skynet/music/33jeszczePolska.mp3', autoPlay: false },
+  { name: 'Nanashi Zer YouTube Nanashi Zero', url: '/vue-skynet/music/44Nanashi_ZerYouTubeNanashi_Zero.mp3', autoPlay: false },
+  // { name: 'Nie płakać psia mać V0', url: '/vue-skynet/music/33.mp3' },
 ]);
 
 // const audioFiles = ref<AudioFile[]>([
-//   { name: 'Nie płakać psia mać V1', url: '/vue-skynet/music/33.mp3' },
-//   { name: 'Nie płakać psia mać V4', url: '/vue-skynet/music/33.mp3' },
-//   { name: 'Nie płakać psia mać V5', url: '/vue-skynet/music/33.mp3' },
-//   { name: 'W labiryncie kodu V1 (new)', url: '/vue-skynet/music/33.mp3' },
-//   { name: 'W labiryncie kodu V2 (new)', url: '/vue-skynet/music/33.mp3' },
-//   { name: 'Jeszcze Polska nie zgineła', url: '/vue-skynet/music/33.mp3' },
-//   { name: 'Nanashi Zer YouTube Nanashi Zero', url: '/vue-skynet/music/33.mp3' },
+//   { name: 'Nie płakać psia mać V1', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+//   { name: 'Nie płakać psia mać V4', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+//   { name: 'Nie płakać psia mać V5', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+//   { name: 'W labiryncie kodu V1 (new)', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+//   { name: 'W labiryncie kodu V2 (new)', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+//   { name: 'Jeszcze Polska nie zgineła', url: '/vue-skynet/music/33.mp3', autoPlay: false },
+//   { name: 'Nanashi Zer YouTube Nanashi Zero', url: '/vue-skynet/music/33.mp3', autoPlay: false },
 // ]);
+
+const autoPlayIndex = computed(() => {
+  const index = audioFiles.value.findIndex(file => file.autoPlay);
+  console.log("I: " + index)
+  return index !== -1 ? index : null;
+});
+
+// const isPlaying = (fileId) => {
+//   return currentPlayingFile.value?.id === fileId;
+// };
 
 const emit = defineEmits(["audioSelected"]);
 const isOpen = ref(false);
@@ -70,7 +94,22 @@ const closeModal = () => {
 const playAudio = (file: AudioFile) => {
   console.log("EMITUJ showModal" + JSON.stringify(file));
   emit('audioSelected', file);
+  setAutoPlayIndex(file);
 };
+
+const setAutoPlayIndex = (file: AudioFile) => {
+  const index = audioFiles.value.findIndex(f => f.name === file.name);
+  if (index !== -1) {
+    audioFiles.value.forEach((f, i) => {
+      if (i === index) {
+        f.autoPlay = true;
+      } else {
+        f.autoPlay = false;
+      }
+    });
+  }
+};
+
 
 onMounted(() => {
   emit('audioSelected', audioFiles.value);
@@ -141,11 +180,12 @@ onMounted(() => {
   cursor: pointer;
 }
 
-.audio-item{
+.audio-item {
   display: flex;
   align-items: center;
 }
-.audio-item>*{
+
+.audio-item>* {
   margin-left: 5px;
   margin-top: 3px;
 }
@@ -159,11 +199,13 @@ onMounted(() => {
 
 @keyframes pulse {
   0% {
-    transform: scale(1); 
+    transform: scale(1);
   }
+
   50% {
-    transform: scale(1.05); 
+    transform: scale(1.05);
   }
+
   100% {
     transform: scale(1);
   }
@@ -171,8 +213,8 @@ onMounted(() => {
 
 
 @media screen and (max-width: 600px) {
-  .modal{
- width: 100%;
-}
+  .modal {
+    width: 100%;
+  }
 }
 </style>
